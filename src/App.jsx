@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import emailjs from '@emailjs/browser';
 import About from "./components/About";
 import Certifications from "./components/Certifications";
-import Skills from "./components/skills";
+import Skills from "./components/Skills";
 function App() {
   
   const [isLoaded, setIsLoaded] = useState(false);
