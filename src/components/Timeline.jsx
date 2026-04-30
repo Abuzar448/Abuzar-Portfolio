@@ -51,7 +51,7 @@ export const Timeline = ({ data }) => {
                 <div className="h-4 w-4 rounded-full bg-neutral-800 border-2 border-blue-500" />
               </div>
               
-              <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-zinc-500 ">
+              <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-zinc-300 ">
                 {item.title}
               </h3>
             </div>
@@ -63,7 +63,7 @@ export const Timeline = ({ data }) => {
               </h3>
               
               {/* Actual Content Card */}
-              <div className="flex dark:bg-black pl-6 rounded-3xl">
+              <div className="flex bg-black pl-6 rounded-3xl">
                 {item.content}
               </div>
             </div>
