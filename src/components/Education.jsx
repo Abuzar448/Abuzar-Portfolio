@@ -8,10 +8,10 @@ const EducationPage = () => {
       title: "2026",
       content: (
         <div className="w-full text-center center">
-          <h4 className="text-xl font-bold text-neutral-800 dark:text-neutral-200">
+          <h4 className="text-xl font-bold text-white">
             B.Tech Final Year - Computer Science
           </h4>
-          <p className="text-neutral-700 dark:text-neutral-400 mt-2">
+          <p className="text-zinc-700 mt-2">
             Currently completing my engineering at Shri Sant Gadgebaba College
             of Engineering & Technology, Bhusawal. <br />
             Focusing on system design and preparing for the IT industry.
@@ -38,15 +38,15 @@ const EducationPage = () => {
       title: "Early 2026",
       content: (
         <div className="w-full text-center">
-          <h4 className="text-xl font-bold text-neutral-800 dark:text-neutral-200">
+          <h4 className="text-xl font-bold text-white">
             AI Engineering & Python Journey
           </h4>
-          <p className="text-neutral-700 dark:text-neutral-400 mt-2">
+          <p className="text-zinc-700 mt-2">
             Started a structured path to learn AI. Exploring Machine Learning,<br />
             Data Models, and Python-driven automation.
             <br />
           </p>
-          <p className="text-neutral-700 dark:text-neutral-400 mt-2">
+          <p className="text-zinc-700 mt-2">
           Initiated a dedicated transition into <span className="text-blue-500">Artificial Intelligence</span>,<br /> leveraging 
           Python to explore the intersection of data-driven intelligence and modern web applications.
         </p>
@@ -65,10 +65,10 @@ const EducationPage = () => {
       title: "2024 - Ongoing",
       content: (
         <div className="w-full text-center">
-          <h4 className="text-xl font-bold text-neutral-800 dark:text-neutral-200">
+          <h4 className="text-xl font-bold text-white">
             Full-Stack Mastery (MERN)
           </h4>
-          <p className="text-neutral-700 dark:text-neutral-400 mt-2">
+          <p className="text-zinc-700 mt-2">
             Developed deep expertise in <span className="text-blue-500"><strong>MongoDB, Express, React, and Node.js
             with API Integretion.</strong></span><br /> Built a 
             full-scale Social Media Platform and Employee Service Applications.
@@ -96,7 +96,7 @@ const EducationPage = () => {
       title: "2022",
       content: (
         <div className="space-y-4">
-          <h4 className="text-xl md:text-2xl font-bold text-neutral-800 dark:text-neutral-200">
+          <h4 className="text-xl md:text-2xl font-bold text-white">
             Higher Secondary Education (HSC)
           </h4>
 

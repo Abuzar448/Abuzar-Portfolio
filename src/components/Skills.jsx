@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import BackToTop from "./BackToTop";
 import { motion } from "framer-motion";
 
 const Skills = () => {
@@ -37,7 +36,7 @@ const Skills = () => {
       className="skillsMainBox flex flex-col justify-center items-center py-24 px-4 relative bg-[#0f172a]"
     >
       <div className="w-full container max-w-5xl">
-        <BackToTop />
+
         <br />
         <br />
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-white">

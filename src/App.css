@@ -121,7 +121,7 @@ body{
   max-width: 1600px;
   margin: 0 auto;
   width: 100%;
-  padding-top: 50px;
+  padding-top: 35px;
 }
 .hero-content{
   flex: 1;
@@ -836,20 +836,19 @@ body{
   .navbar {
     position: absolute;
     top: auto;        /* 'top' se hatakar */
-    bottom: 50px;        /* bottom par le aaye */
+    bottom: 30px;        /* bottom par le aaye */
     border-top: 1px solid var(--card-border);
     border-bottom: none;
     border-radius: 50px;
     align-items: center;
     height: 80px;
     width: 90%;
-    justify-content: center; /* Links ko center mein align karne ke liye */
+    justify-content: center;
   }
   .hero{
     border-radius: 0px 80px 0px 0px;
   }
 
-  /* YouTube style: Mobile par logo hata dete hain taaki jagah bache */
   .logo {
     display: none; 
   }
@@ -916,6 +915,7 @@ body{
   padding-top: 80px;
   text-align: center;
   border-radius: 120px 120px 0px 0px;
+  margin-bottom: 30px;
 }
 .contentBox{
   padding-top: 150px;
@@ -966,5 +966,4 @@ body{
 }
 
 
-/* ise dekho  */
 

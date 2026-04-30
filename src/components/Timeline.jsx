@@ -34,7 +34,7 @@ export const Timeline = ({ data }) => {
     <div id="education" className="w-full bg-[black] dark:bg-black font-sans educationMain " ref={containerRef}>
       <BackToTop></BackToTop>
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-3xl md:text-5xl mb-4 text-black dark:text-white font-bold ">
+        <h2 className="text-3xl md:text-5xl mb-4 text-white dark:text-white font-bold ">
           Educational <span className="text-blue-500">Journey</span>
         </h2>
         <br />
