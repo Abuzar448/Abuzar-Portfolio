@@ -2,6 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { FaDownload } from "react-icons/fa";
+import Navbar from "./Navbar";
+import LoottieAnimation from "./LootieAnimation"; 
 
 const fadeInUp = {
   initial: { opacity: 0, y: 50 },
@@ -27,12 +30,20 @@ const Hero = () => {
   return (
     <motion.section
       id="home"
-      className="hero"
+      className="hero relative w-full h-auto overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, delay: 0.5 }}
     >
-      <div className="hero-container">
+      {/* BACKGROUND ANIMATION LAYER - Ab ye sirf mobile pe dikhega */}
+      {/* 'block md:hidden' ka matlab hai: mobile pe dikhao, laptop (md) pe chhupa do */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-30 block md:hidden">
+        <LoottieAnimation />
+      </div>
+
+      <Navbar></Navbar>
+
+      <div className="hero-container relative z-10">
         <motion.div
           className="hero-content"
           variants={staggerContainer}
@@ -40,7 +51,7 @@ const Hero = () => {
           animate="animate"
         >
           <motion.div className="hero-badge">
-            <span>👋 Hello,I'm</span>
+            <span>👋 Hello, I'm</span>
           </motion.div>
 
           <motion.h1
@@ -52,7 +63,7 @@ const Hero = () => {
           </motion.h1>
 
           <motion.h2 className="hero-subtitle">
-            Creative developer & Designer
+            A Creative FullStack Developer & Designer
           </motion.h2>
 
           <motion.p className="hero-description" variants={fadeInUp}>
@@ -63,33 +74,25 @@ const Hero = () => {
 
           <motion.div className="cta-buttons" variants={staggerContainer}>
             <motion.a
-              href="#projects"
+              href="#education"
               className="cta-primary"
               variants={slideRight}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              View My Work
+              My Education
             </motion.a>
             <motion.a
-              href="#contact"
+              href="/Abuzar_k_Resume.pdf"
+              download="Abuzar_Khan_Resume.pdf"
+              target="_blank"
               className="cta-secondary"
               variants={slideRight}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Contact Me
-            </motion.a>
-          </motion.div>
-          <motion.div className="social-links" variants={staggerContainer}>
-            <motion.a href="https://github.com/Abuzar448" target="_blank">
-              <i className="fab fa-github"></i>
-            </motion.a>
-            <motion.a href="https://www.linkedin.com/in/abuzar-khan-4a03b0290/" target="_blank">
-              <i className="fab fa-linkedin"></i>
-            </motion.a>
-            <motion.a href="https://twitter.com" target="_blank">
-              <i className="fab fa-twitter"></i>
+              <span className="">Resume...</span>
+              <FaDownload className="font-semibold h-[20px] w-[25px]" />
             </motion.a>
           </motion.div>
         </motion.div>
@@ -133,6 +136,7 @@ const Hero = () => {
       };`}
             </SyntaxHighlighter>
           </div>
+
           <motion.div
             className="floating-card"
             animate={{ y: [0, -10, 0], rotate: [0, 2, 0] }}

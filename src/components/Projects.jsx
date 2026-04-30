@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import BackToTop from "./BackToTop";
 
 const Projects = () => {
   const fadeInUp = {
@@ -24,6 +25,7 @@ const Projects = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
+      <BackToTop></BackToTop>
       <motion.h2
         variants={fadeInUp}
         initial="initial"

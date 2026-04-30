@@ -8,6 +8,7 @@ import emailjs from '@emailjs/browser';
 import About from "./components/About";
 import Certifications from "./components/Certifications";
 import Skills from "./components/Skills";
+import Education from "./components/Education";
 function App() {
   
   const [isLoaded, setIsLoaded] = useState(false);
@@ -17,14 +18,14 @@ function App() {
   }, []);
   
   return (
-    <div className={`app ${isLoaded ? 'loaded' : ''}`}>
-      <Navbar></Navbar>
-      <Hero></Hero>
-      <About></About>
-      <Skills></Skills>
-      <Projects></Projects>
-      <Certifications></Certifications>
-      <Contact></Contact>
+    <div className={`app ${isLoaded ? 'loaded' : ''} relative w-full h-[100vh]`}>
+        <Hero />
+        <About />
+        <Education/>
+        <Skills />
+        <Projects />
+        <Certifications />
+        <Contact />
 
       <>
       <p className="footer"> @copy: 2025 CodeSeekho.All rights reserved</p>

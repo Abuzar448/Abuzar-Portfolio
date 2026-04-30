@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import BackToTop from "./BackToTop";
 const Contact = () => {
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
@@ -63,13 +64,13 @@ const Contact = () => {
         success: true,
         error: false,
         message: "Message sent successfully!",
-      });
-
-      setFormData({
+      },setFormData({
         name: "",
         email: "",
         message: "",
-      });
+      }));
+
+      
     } catch (error) {
       setFormStatus({
         submitting: false,
@@ -89,6 +90,7 @@ const Contact = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
+      <BackToTop></BackToTop>
       <motion.h2
         variants={fadeInUp}
         initial="initial"
@@ -105,6 +107,7 @@ const Contact = () => {
             type="text"
             name="name"
             placeholder="Your Name..."
+            value={formData.name}
             required
             whileFocus={{ scale: 1.02 }}
             onChange={handleInputChange}
@@ -113,6 +116,7 @@ const Contact = () => {
             type="email"
             name="email"
             placeholder="Your Email..."
+            value={formData.email}
             required
             whileFocus={{ scale: 1.02 }}
             onChange={handleInputChange}
@@ -120,6 +124,7 @@ const Contact = () => {
           <motion.textarea
             name="message"
             placeholder="Your Message..."
+            value={formData.message}
             required
             whileFocus={{ scale: 1.02 }}
             onChange={handleInputChange}
