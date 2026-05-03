@@ -34,7 +34,7 @@ const BackToTop = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
           onClick={scrollToTop}
-          className="absolute bottom-2  font-semibold right-8 z-100 p-4 rounded-full bg-Blue-300 text-[white] shadow-2xl hover:bg-blue-600 transition-colors border border-Black-400/20"
+          className="upArrow fixed top-12 font-semibold right-12 z-100 p-4 rounded-full bg-Blue-300 text-[white] shadow-2xl hover:bg-blue-600 transition-colors border border-Black-400/20"
         >
           <ArrowUp size={50} strokeWidth={1.5} className='rounded-full bg-[black]'/>
         </motion.button>

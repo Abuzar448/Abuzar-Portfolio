@@ -11,18 +11,18 @@ html,body{
   background-color: black !important;
 }
 :root{
-  --primary-color: #7c3aed;
-  --primary-dark: #5b21b6;
-  --secondary-color: #db2777;
-  --accent-color: #f472b6;
+  --primary-color: #5c55e2;
+  --primary-dark: #541eaa;
+  --secondary-color: #1991a3;
+  --accent-color: #1991a3;
   --text-color: #e2e8f0;
   --light-text: #94a3b8;
   --background: #0f172a;
   --section-bg: #1e293b;
   --card-bg: #1e293b;
-  --gradient-start: #7c3aed;
+  --gradient-start: #070707d20;
   --gradient-end: #db2777;
-  --nav-bg: rgba(15, 23, 42, 0.8);
+  --nav-bg: #070707d20;
   --card-border: rgba(148, 163, 184, 0.1);
 }
 
@@ -50,10 +50,11 @@ body{
   justify-content: center;
 }
 .navbar{
-  position: fixed;
+  position: absolute;
   top:0;
   left:0;
   right:0;
+  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -106,7 +107,8 @@ body{
 .hero{
   min-height: 100vh;
   height: 100vh;
-  background: linear-gradient(135deg,var(--gradient-start) 0%,var(--gradient-end) 100%);
+  width: 100%;
+  background: linear-gradient(180deg, #000000 0%, #0f172a 100%);
   display: flex;
   align-items: center;
   padding: 0% 5%;
@@ -123,6 +125,7 @@ body{
   width: 100%;
   padding-top: 35px;
 }
+
 .hero-content{
   flex: 1;
   text-align: left;
@@ -183,7 +186,7 @@ body{
 }
 .cta-primary{
   background-color: white;
-  color: var(--primary-color);
+  color: var(--accent-color);
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
   border: 2px solid white;
 }
@@ -292,8 +295,8 @@ body{
   background-color:#0f172a;
   background: linear-gradient(
     180deg, 
-    rgba(30, 41, 59, 1) 0%,   /* Upar ka color */
-    rgba(15, 23, 42, 1) 50%,  /* Beech ka color */
+    #0f172a 0%,   /* Upar ka color */
+    rgb(2, 9, 27) 50%,  /* Beech ka color */
     rgba(0, 0, 0, 1) 100%     /* Neeche poora black */
   );
   color: var(--text-color);
@@ -465,7 +468,7 @@ body{
 
 .projects {
   padding: 5rem 5%;
-  background-color: var(--background);
+  background-color: #0000;
   position: relative;
 }
 
@@ -583,8 +586,13 @@ body{
 /* contact section */
 
 .contact {
-  padding: 6rem 5%;
-  background: var(--section-bg);
+  padding: 3rem 5%;
+  background: linear-gradient(
+    210deg, 
+    #000 0%,   /* Upar ka color */
+    #000 20%,  /* Beech ka color */
+    rgb(2, 9, 27) 100%     /* Neeche poora black */
+  );
   position: relative;
 }
 
@@ -702,7 +710,7 @@ body{
 .footer {
   text-align: center;
   padding: 2rem;
-  background: var(--background);
+  background: #000;
   color: var(--text-color);
   border-top: 1px solid var(--card-border);
 }
@@ -712,8 +720,14 @@ body{
 
 .certification {
   padding: 2rem 5%;
-  background-color: var(--background);
+  background-color: #000;
   position: relative;
+  background: linear-gradient(
+    180deg, 
+    #000 0%,   /* Upar ka color */
+    rgb(2, 9, 27) 60%,  /* Beech ka color */
+    rgba(0, 0, 0, 1) 100%     /* Neeche poora black */
+  );
 }
 
 .certification h2 {
@@ -834,9 +848,11 @@ body{
 /* Mobile Navigation Optimization */
 @media (max-width: 768px) {
   .navbar {
-    position: absolute;
-    top: auto;        /* 'top' se hatakar */
-    bottom: 30px;        /* bottom par le aaye */
+    position: fixed;
+    top: auto; 
+    bottom: 30px;
+    left: 22px;  
+    transform: translateX(-50%);  
     border-top: 1px solid var(--card-border);
     border-bottom: none;
     border-radius: 50px;
@@ -844,6 +860,12 @@ body{
     height: 80px;
     width: 90%;
     justify-content: center;
+    border: 1px solid #1e293b;
+    z-index: 100;
+    backdrop-filter:#00000000;
+  }
+  .glitch{
+   font-size:60px;
   }
   .hero{
     border-radius: 0px 80px 0px 0px;
@@ -859,13 +881,14 @@ body{
     justify-content: space-around; /* Links ko spread karne ke liye */
     gap: 0;
   }
-}
-
-@media (max-width: 768px) {
-  .app {
-    padding-bottom: 70px; /* Navbar ki height jitni padding */
+  .upArrow{
+    display: none;
+  }
+  .glitch{
+    font-size: 3.5rem;
   }
 }
+
 
 
 @media (max-width: 768px){
@@ -962,8 +985,49 @@ body{
 @media (max-width: 768px){
   .skillsMainBox{
     border-radius: 100px 0px 0px 0px;
+    background: linear-gradient(
+  180deg, 
+    #000 0%,   /* Upar ka color */
+    #000 40%,  /* Beech ka color */
+    rgba(2, 9, 27) 100%     /* Neeche poora black */
+  );
   }
 }
 
 
+
+@media screen and (min-width: 1024px){
+  .hero{
+    padding-top: 30px;
+  }
+  .contact{
+    display: flex;
+    width: 100%;
+    gap: 15%;
+  }
+  .contact-f{
+    width: 50%;
+    height: 100%;
+
+  }
+  .contact-anime{
+    width: 40%;
+    height: 40%;
+  }
+}
+
+@media (max-width: 768px){
+  .OuterMostDiv{
+  position: relative;
+}
+}
+
+.upArrow:hover{
+  background-color: #000;
+  color: #1991a3;
+  border: 1px dotted white;
+  cursor: pointer;
+  scale: 1.1;
+  transition: all 0.1s ease-in ;
+}
 

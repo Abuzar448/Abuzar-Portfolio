@@ -33,7 +33,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="skillsMainBox flex flex-col justify-center items-center py-24 px-4 relative bg-[#0f172a]"
+      className="skillsMainBox flex flex-col justify-center items-center py-24 px-4 relative bg-[#070707d20]"
     >
       <div className="w-full container max-w-5xl">
 

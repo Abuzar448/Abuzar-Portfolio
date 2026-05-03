@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { FaDownload } from "react-icons/fa";
-import Navbar from "./Navbar";
 import LoottieAnimation from "./LootieAnimation"; 
 
 const fadeInUp = {
@@ -37,11 +36,11 @@ const Hero = () => {
     >
       {/* BACKGROUND ANIMATION LAYER - Ab ye sirf mobile pe dikhega */}
       {/* 'block md:hidden' ka matlab hai: mobile pe dikhao, laptop (md) pe chhupa do */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-30 block md:hidden">
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-50 block md:hidden">
         <LoottieAnimation />
       </div>
 
-      <Navbar></Navbar>
+      
 
       <div className="hero-container relative z-10">
         <motion.div

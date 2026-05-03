@@ -18,21 +18,26 @@ function App() {
 
   return (
     <div
-      className={`app ${isLoaded ? "loaded" : ""} relative w-full h-[100vh]`}
+      className={`${isLoaded ? "loaded" : ""} OuterMostDiv relative w-full min-h-screen`}
     >
-      <Hero />
-      <About />
-      <Education />
-      <Skills />
-      <Projects />
-      <Certifications />
-      <Contact />
+      
+      <Navbar></Navbar>
+      <div className="pt-20 md:pt-0">
+        <Hero />
+        <About />
+        <Education />
+        <Skills />
+        <Projects />
+        <Certifications />
+        <Contact />
 
-      <>
-        <p className="footer">
-          © {new Date().getFullYear()} | Designed & Developed with Precision by <strong>Abuzar Khan</strong>.
-        </p>
-      </>
+        <>
+          <p className="footer">
+            © {new Date().getFullYear()} | Designed & Developed with Precision
+            by <strong>Abuzar Khan</strong>.
+          </p>
+        </>
+      </div>
     </div>
   );
 }
