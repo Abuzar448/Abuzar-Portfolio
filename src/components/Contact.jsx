@@ -165,13 +165,13 @@ const Contact = () => {
               <p className="font-semibold social-heading">Social Links : </p>
             
             <div className="w-[50px] h-[50px] border border-blue-300 cursor-pointer flex items-center justify-center bg-[#5c55e2] hover:border-2 hover:border-blue-400 hover:bg-transparent rounded-full">
-              <FaLinkedin />
+              <a href="https://www.linkedin.com/in/abuzar-khan-4a03b0290/"><FaLinkedin /></a>
             </div>
             <div className="w-[50px] h-[50px] border border-blue-300 cursor-pointer flex items-center justify-center bg-[#5c55e2] hover:border-2 hover:border-blue-400 hover:bg-transparent rounded-full">
-              <FaInstagramSquare /> 
+              <a href="https://www.instagram.com/abuzar-khan-t/"><FaInstagramSquare /> </a>
             </div>
             <div className="w-[50px] h-[50px] border border-blue-300 cursor-pointer flex items-center justify-center bg-[#5c55e2] hover:border-2 hover:border-blue-400 hover:bg-transparent rounded-full">
-              <FaGithub />
+              <a href="https://github.com/Abuzar448"><FaGithub /></a>
             </div>
             
           </div>
