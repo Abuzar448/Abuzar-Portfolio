@@ -162,7 +162,8 @@ const Contact = () => {
         <div className="contact-anime">
           <ContactAnimation></ContactAnimation>
           <div className="flex gap-8 w-full items-center justify-center">
-            <p className="font-semibold">Catch My Latest Updates : </p>
+              <p className="font-semibold social-heading">Social Links : </p>
+            
             <div className="w-[50px] h-[50px] border border-blue-300 cursor-pointer flex items-center justify-center bg-[#5c55e2] hover:border-2 hover:border-blue-400 hover:bg-transparent rounded-full">
               <FaLinkedin />
             </div>
