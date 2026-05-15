@@ -9,6 +9,7 @@ import About from "./components/About";
 import Certifications from "./components/Certifications";
 import Skills from "./components/Skills";
 import Education from "./components/Education";
+import CustomCursor from "./components/CustomCursor";
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
@@ -20,8 +21,8 @@ function App() {
     <div
       className={`${isLoaded ? "loaded" : ""} OuterMostDiv relative w-full min-h-screen`}
     >
-      
       <Navbar></Navbar>
+      <CustomCursor></CustomCursor>
       <div className="pt-20 md:pt-0">
         <Hero />
         <About />
