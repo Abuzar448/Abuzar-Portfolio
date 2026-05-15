@@ -20,7 +20,7 @@ const CustomCursor = () => {
   }, []);
 
   return (
-    <div id="cursor" ref={cursorRef} className='absolute z-50'></div>
+    <div id="cursor" ref={cursorRef} className='z-50'></div>
   );
 };
 
