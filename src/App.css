@@ -914,6 +914,12 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
+  #cursor{
+    display: none !important;
+  }
+  .string{
+    display: none !important;
+  }
 }
 
 @media (max-width: 768px) {

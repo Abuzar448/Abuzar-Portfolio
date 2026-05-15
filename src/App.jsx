@@ -10,6 +10,7 @@ import Certifications from "./components/Certifications";
 import Skills from "./components/Skills";
 import Education from "./components/Education";
 import CustomCursor from "./components/CustomCursor";
+import SvgString from "./components/SvgString";
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
@@ -25,6 +26,7 @@ function App() {
       <CustomCursor></CustomCursor>
       <div className="pt-20 md:pt-0">
         <Hero />
+        <SvgString></SvgString>
         <About />
         <Education />
         <Skills />
