@@ -99,6 +99,35 @@ const Projects = () => {
           </div>
         </motion.div>
         </a>
+
+        <a href="https://abuzar448.github.io/Myntra_Clone/">
+          <motion.div
+          className="project-card"
+          variants={fadeInUp}
+          whileHover={{ y: -10, transition: { duration: 0.2 } }}
+        >
+          <motion.div
+            className="project-image"
+            style={{
+              backgroundImage: "url('/projects/Myntra_Clone.jpg')",
+            }}
+            whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+          />
+          <h3> StyleHub - Myntra Functional Clone</h3>
+          <p>
+            A fully responsive, functional web application that replicates the core user interface and "Add to Bag" functionality of the popular e-commerce platform, Myntra.
+          </p>
+          <div className="project-tech">
+            <span>HTML5</span>
+            <span>Javascript</span>
+            <span>CSS5</span>
+            <span>Tailwind</span>
+            <span>Media Queries</span>
+          </div>
+        </motion.div>
+        </a>
+
+        
         
       </motion.div>
     </motion.section>
