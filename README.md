@@ -1,4 +1,5 @@
-🚀 Animated Interactive Portfolio - React.js
+#🚀 Animated Interactive Portfolio - Abuzar Khan .
+
 A high-performance, fully responsive personal portfolio featuring smooth horizontal animations and modern UI components. This project showcases my journey as a Full-Stack Developer and AI Engineering enthusiast.
 
 🌐 Live Demo
