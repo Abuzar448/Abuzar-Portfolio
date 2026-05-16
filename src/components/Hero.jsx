@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { FaDownload } from "react-icons/fa";
-import LoottieAnimation from "./LootieAnimation"; 
+import LoottieAnimation from "./LootieAnimation";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 50 },
@@ -39,8 +39,6 @@ const Hero = () => {
       <div className="absolute inset-0 z-0 pointer-events-none opacity-50 block md:hidden">
         <LoottieAnimation />
       </div>
-
-      
 
       <div className="hero-container relative z-10">
         <motion.div
@@ -132,7 +130,7 @@ const Hero = () => {
           missionStatement:
             "Turning ideas into interfaces and bugs into feature",
             availability: "Available for hire",
-      };`}
+             };`}
             </SyntaxHighlighter>
           </div>
 

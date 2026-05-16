@@ -1050,3 +1050,91 @@ body {
   scale: 1.1;
   transition: all 0.1s ease-in;
 }
+
+
+/* tablet view */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Navbar adjustments */
+  .navbar {
+    padding: 3rem 6%; 
+    height: 65px;
+  }
+  
+  .nav-links {
+    gap: 1.6rem; 
+  }
+
+  .logo {
+    font-size: 1.6rem;
+  }
+
+  .hero {
+    padding: 0 4%;
+    height: auto; 
+    min-height: 100vh;
+    padding-top: 80px; 
+    overflow: hidden;
+  }
+
+  .hero-container {
+    flex-direction: row; 
+    gap: 1.5rem; 
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-content {
+    max-width: 100%; 
+  }
+
+  .glitch {
+    font-size: 2.8rem; 
+  }
+
+  .hero-subtitle {
+    font-size: 1.4rem;
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+
+  .cta-buttons {
+    flex-wrap: wrap; 
+    gap: 0.8rem;
+  }
+
+  .cta-primary, .cta-secondary {
+    min-width: 140px; 
+    padding: 12px 10px;
+    font-size: 0.9rem;
+  }
+
+  .hero-image-container {
+    display: none; 
+  }
+
+  .code-display {
+    height: 400px;   
+    overflow: hidden; 
+  }
+
+ 
+  .code-display pre {
+    padding: 1rem !important; 
+    font-size: 0.75rem !important; 
+  }
+
+  .floating-card {
+    right: 0; 
+    bottom: 1rem;
+    padding: 0.8rem 1rem;
+    width: 80%; 
+  }
+
+  .string{
+    display: none !important;
+  }
+}
