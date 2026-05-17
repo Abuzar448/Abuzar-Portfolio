@@ -34,8 +34,7 @@ const Hero = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, delay: 0.5 }}
     >
-      {/* BACKGROUND ANIMATION LAYER - Ab ye sirf mobile pe dikhega */}
-      {/* 'block md:hidden' ka matlab hai: mobile pe dikhao, laptop (md) pe chhupa do */}
+      
       <div className="absolute inset-0 z-0 pointer-events-none opacity-50 block md:hidden">
         <LoottieAnimation />
       </div>
