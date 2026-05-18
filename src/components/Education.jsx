@@ -62,6 +62,33 @@ const EducationPage = () => {
       ),
     },
     {
+      title: "2024-(2 months)",
+      content: (
+        <div className="w-full text-center">
+          <h4 className="text-xl font-bold text-white">
+            Web Developer Intern
+          </h4>
+          <p className="text-zinc-400 mt-2">
+            Received an offer letter from codsoft ,<br /> Builds various mini to high level project that shape my skills in right way. <br /> I have used <span className="text-blue-500"><strong>Core javascript Concepts , React, and Node.js
+            with API Integretion.</strong></span><br /> 
+            <br />
+            I Especially worked on my frontend skills ,<br /> i have engaged with multiple of new terms and tasks those i didnt use before 
+          </p>
+          <div className="icons">
+            <div className="mt-4 courseDiv">
+              
+              <span className="course px-2 py-1 bg-purple-500/10 text-purple-500 rounded text-xl">
+                FrontEnd
+              </span>
+              <span className="course px-2 py-1 bg-purple-500/10 text-blue-500 rounded text-xl">
+                Framer-Motion
+              </span>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
       title: "2024 - Ongoing",
       content: (
         <div className="w-full text-center">

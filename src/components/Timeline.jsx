@@ -30,15 +30,13 @@ export const Timeline = ({ data }) => {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    // Dark mode classes ko force kiya hai yahan
     <div id="education" className="w-full bg-[black] dark:bg-black font-sans educationMain " ref={containerRef}>
       <BackToTop></BackToTop>
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-3xl md:text-5xl mb-4 text-white dark:text-white font-bold ">
-          Educational <span className="text-blue-500">Journey</span>
+        <h2 className="text-3xl md:text-5xl mb-4 text-white dark:text-white font-bold">
+          Educational & <br /> Experience <span className="text-blue-500">Journey</span>
         </h2>
-        <br />
-        <br />
+        
       </div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
