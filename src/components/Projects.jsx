@@ -42,7 +42,7 @@ const Projects = () => {
         whileInView="animate"
         viewport={{ once: true }}
       >
-        <a href="https://c1bbe7d5-09c2-4873-8d0c-d9538677d326-00-2in90n41zc1j2.sisko.replit.dev/listings">
+        <a href="https://rent-mate--abuzar21.replit.app">
           <motion.div
             className="project-card"
             variants={fadeInUp}
