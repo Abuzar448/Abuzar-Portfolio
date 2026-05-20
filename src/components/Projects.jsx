@@ -71,7 +71,7 @@ const Projects = () => {
           </motion.div>
         </a>
 
-        <a href="https://69036271ea3020341e292a15--sidcup-web.netlify.app/">
+        <a href="https://sidcup-web.netlify.app/">
           <motion.div
             className="project-card"
             variants={fadeInUp}
