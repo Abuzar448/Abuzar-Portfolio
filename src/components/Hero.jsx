@@ -80,7 +80,7 @@ const Hero = () => {
             </motion.a>
             <motion.a
               href="/Abuzar_k_Resume.pdf"
-              download="Abuzar_Khan_Resume.pdf"
+              download="abuzar_khan_resume.pdf"
               target="_blank"
               className="cta-secondary"
               variants={slideRight}
