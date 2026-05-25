@@ -31,7 +31,7 @@ const SvgString = () => {
       
       onMouseMove={handleMouseMove} 
       onMouseLeave={handleMouseLeave}
-      style={{ height: "250px", width: "100%", background: "#0f172a", display: "flex", alignItems: "center" }}
+      style={{ height: "250px", width: "100%", background: "black", display: "flex", alignItems: "center" }}
       className="string"
     >
       <svg width="100%" height="200" preserveAspectRatio="none">
