@@ -931,6 +931,12 @@ body {
   #education h2{
     margin-top: 4rem;
   }
+  .certificateBox{
+    margin-bottom: 5rem;
+  }
+  .certificateBox .img{
+    margin-top: 2rem;
+  }
 }
 
 @media (max-width: 768px) {

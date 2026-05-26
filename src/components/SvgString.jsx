@@ -4,12 +4,19 @@ import gsap from "gsap";
 const SvgString = () => {
   const pathRef = useRef(null);
   
-  // Ye wahi initial path hai jo tumne diya tha
-  const finalPath = `M 50 100 Q 650 100 1280 100`;
+  // FIXED: Responsive Grid base coordinates (1000x200 matrix)
+  // Ab string exact center me (Y=100) stretch hogi har screen par
+  const finalPath = "M 20 100 Q 500 100 980 100";
 
   const handleMouseMove = (dets) => {
-    // dets.nativeEvent.offsetX aur offsetY se hum container ke andar ki exact position lete hain
-    const newPath = `M 50 100 Q ${dets.nativeEvent.offsetX} ${dets.nativeEvent.offsetY} 1280 100`;
+    // Get absolute bounding box to calculate relative percentages inside the SVG viewbox
+    const container = dets.currentTarget.getBoundingClientRect();
+    
+    // Convert absolute screen mouse position to 1000x200 SVG Coordinate spaces
+    const relativeX = ((dets.clientX - container.left) / container.width) * 1000;
+    const relativeY = ((dets.clientY - container.top) / container.height) * 200;
+
+    const newPath = `M 20 100 Q ${relativeX} ${relativeY} 980 100`;
 
     gsap.to(pathRef.current, {
       attr: { d: newPath },
@@ -22,19 +29,27 @@ const SvgString = () => {
     gsap.to(pathRef.current, {
       attr: { d: finalPath },
       duration: 1.5,
-      ease: "elastic.out(1, 0.3)", // Wahi guitar string wala jhatka (vibration)
+      ease: "elastic.out(1, 0.3)", // Guitar string vibration preserved
     });
   };
 
   return (
-    <div 
-      
+    <div
       onMouseMove={handleMouseMove} 
       onMouseLeave={handleMouseLeave}
-      style={{ height: "250px", width: "100%", background: "black", display: "flex", alignItems: "center" }}
-      className="string"
+      // CRITICAL FIXES: 
+      // 1. 'hidden md:flex' -> Mobile par 100% hidden, tablet/desktop par layout screen me active.
+      // 2. Clear background container with layout alignment properties.
+      className="string hidden md:flex h-[200px] w-full items-center justify-center bg-transparent relative my-10"
     >
-      <svg width="100%" height="200" preserveAspectRatio="none">
+      {/* FIXED: Added explicit viewBox to scale math coordinates proportionately across screen widths */}
+      <svg 
+        width="100%" 
+        height="100%" 
+        viewBox="0 0 1000 200" 
+        preserveAspectRatio="none"
+        className="overflow-visible"
+      >
         <path
           ref={pathRef}
           d={finalPath}
