@@ -998,6 +998,7 @@ body {
 .movingSkills {
   padding: 15px;
   cursor: pointer;
+  margin-top: 40px !important;
 }
 .skillsBox {
   margin-top: 25px;
@@ -1171,4 +1172,8 @@ body {
 .tabSkill{
   padding: 12px;
   color: white;
+}
+
+.skill-category{
+  padding: 6px;
 }
