@@ -108,8 +108,8 @@ const Hero = () => {
                 padding: "2rem",
                 height: "100%",
                 borderRadius: "20px",
-                background: "rgba(30,41,59,0.8)",
-                backdropFilter: "blur(10px)",
+                background: "transparent",
+                backdropFilter: "",
               }}
             >
               {`const aboutMe: DeveloperProfile = {

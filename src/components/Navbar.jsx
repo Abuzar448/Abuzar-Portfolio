@@ -28,14 +28,6 @@ const Navbar = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <motion.div
-          className="logo"
-          variants={fadeInUp}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          FullStack Developer
-        </motion.div>
 
         <motion.ul
           className="nav-links"
