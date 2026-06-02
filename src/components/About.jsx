@@ -1,55 +1,73 @@
-// src/components/About.jsx
 import React from "react";
-import { ContainerScroll } from "./container-scroll-animation";
-import ManAnimation from "./ManAnimation";
+import { motion } from "framer-motion";
+import "../Style/about.css";
 
 const About = () => {
+  // Sophisticated stagger system 
+  const containerVariants = {
+    initial: {},
+    animate: {
+      transition: {
+        staggerChildren: 0.18, 
+      },
+    },
+  };
+
+  const itemVariants = {
+    initial: { 
+      opacity: 0, 
+      y: 30 
+    },
+    animate: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.7, 
+        ease: [0.215, 0.610, 0.355, 1.000] // Premium cubic-bezier curve
+      } 
+    },
+  };
+
   return (
-    <section id="about" className="w-full h-[150vh] bg-[black] overflow-hidden flex flex-col items-center justify-center">
-      <ContainerScroll
-        titleComponent={
-          <p className="text-[40px] md:text-[50px] font-semibold text-white">About Me</p>
-        }
-      >
-        {/* INSIDE TAB MOCKUP CONTENT */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 h-full items-center p-4 md:p-8 bg-[black]">
-{/* ANIMATION BOX */}
-          <div className="lg:col-span-5 flex justify-center items-center bg-[#0f172a] rounded-2xl p-4 border border-[#22222a] h-full min-h-[200px]">
-            <div className="w-full max-w-[260px] md:max-w-[400px]">
-              <ManAnimation />
-            </div>
-          </div>
+    <motion.section
+      className="about-section"
+      variants={containerVariants}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true, margin: "-100px" }}
+    >
+      {/* Decorative clean ambient background grid glow */}
+      <div className="about-glow-orb" />
+
+      <div className="about-wrapper">
+        <motion.div className="about-header" variants={itemVariants}>
+          <span className="section-tag">01. Discovery</span>
+          <h2 className="heading">About Me</h2>
+          <div className="accent-bar"></div>
+        </motion.div>
+
+        <div className="about-grid">
+          <motion.div className="about-meta-box" variants={itemVariants}>
+            <h3 className="profile-name">Abuzar Khan</h3>
+            <p className="profile-title">Full-Stack Web Developer & Designer</p>
+          </motion.div>
           
-          {/* TEXT ENGINE */}
-          <div className="tab lg:col-span-7 text-center flex flex-col items-center justify-center gap-6 overflow-y-auto max-h-full pr-2 ">
-            <p className="text-sm md:text-base leading-relaxed text-slate-300">
-              I’m a passionate <span className="text-blue-400 font-bold">Full Stack Web Developer</span> focused on building modern, responsive, and scalable web applications.
+          <motion.div className="about-desc-box" variants={itemVariants}>
+            <p className="about-text">
+              Currently pursuing my <span className="highlight-text">B.Tech</span> in{" "}
+              <span className="highlight-text">Computer Science and Engineering</span>. 
+              I specialize in the MERN Stack, moving away from minor tutorials to build 
+              production-ready, real-world applications with advanced architecture.
             </p>
-            <p className="text-sm md:text-base leading-relaxed text-slate-300">
-              I enjoy turning complex problems into clean, efficient solutions using technologies like <span className="text-blue-400 font-bold">React, Node.js, Express, and MongoDB.</span>
+            <p className="about-text">
+              Currently, I am actively expanding my skillset into <span className="highlight-text">AI Engineering</span> by 
+              focusing on the pipeline execution flow. My ultimate goal is to bridge the gap between 
+              pixel-perfect UI/UX design and highly scalable system performance.
             </p>
-            <p className="text-sm md:text-base leading-relaxed text-slate-300">
-              Currently in my final year of <span className="text-blue-400 font-semibold">B.Tech in Computer Science</span>, I am bridge-building between my foundation in the MERN stack and my growing passion for AI Engineering.
-            </p>
-
-            {/* BADGES METRIC */}
-            <div className="w-full flex flex-wrap gap-3 mt-4 items-center justify-center">
-              {["Frontend dev.", "Backend", "DB Management", "AI/ML", "Figma", "API Integration"].map((skill, index) => (
-                <div
-                  key={index}
-                  className="tabSkill text-xs px-3 py-1.5 rounded-xl border border-neutral-700 bg-[#16161e] text-slate-300 font-mono"
-                >
-                  {skill}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          
-
+          </motion.div>
         </div>
-      </ContainerScroll>
-    </section>
+      </div>
+    </motion.section>
   );
 };
 

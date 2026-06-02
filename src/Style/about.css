@@ -1,0 +1,128 @@
+.about-section {
+  width: 100%;
+  min-height: 80vh;
+  background-color: #0a0a0a;
+  position: relative;
+  padding: 8rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Subtle glow filter */
+.about-glow-orb {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.about-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.about-header {
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.section-tag {
+  font-family: 'Courier New', Courier, monospace;
+  color: #7c3aed;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.about-section .heading {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  text-align: left;
+  letter-spacing: -1px;
+}
+
+.accent-bar {
+  width: 60px;
+  height: 4px;
+  background: #7c3aed;
+  border-radius: 2px;
+}
+
+/* Robust Layout Architecture instead of broken hardcoded blocks */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: top;
+}
+
+.about-meta-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profile-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.profile-title {
+  font-size: 1.1rem;
+  color: #7c3aed;
+  font-weight: 500;
+}
+
+.about-desc-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-text {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #a0aec0;
+  font-weight: 400;
+  text-align: left;
+}
+
+.highlight-text {
+  color: #ffffff;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 5rem 1.5rem;
+  }
+  
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .about-section .heading {
+    font-size: 2.5rem;
+  }
+  
+  .profile-name {
+    font-size: 2rem;
+  }
+}
