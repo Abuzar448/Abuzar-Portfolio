@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import "../Style/about.css";
 
 const About = () => {
-  // Sophisticated stagger system 
   const containerVariants = {
     initial: {},
     animate: {
@@ -36,20 +35,19 @@ const About = () => {
       whileInView="animate"
       viewport={{ once: true, margin: "-100px" }}
     >
-      {/* Decorative clean ambient background grid glow */}
       <div className="about-glow-orb" />
 
       <div className="about-wrapper">
         <motion.div className="about-header" variants={itemVariants}>
-          <span className="section-tag">01. Discovery</span>
-          <h2 className="heading">About Me</h2>
+          <h2 className="about-header heading">Abuzar Khan</h2>
           <div className="accent-bar"></div>
         </motion.div>
 
         <div className="about-grid">
           <motion.div className="about-meta-box" variants={itemVariants}>
-            <h3 className="profile-name">Abuzar Khan</h3>
-            <p className="profile-title">Full-Stack Web Developer & Designer</p>
+            <h3 className="profile-name">Full-Stack Web Developer & Designer</h3>
+            <p className="place">Muktainagar, dist.Jalgaon, Maharashtra</p>
+            
           </motion.div>
           
           <motion.div className="about-desc-box" variants={itemVariants}>
