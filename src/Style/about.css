@@ -43,7 +43,7 @@
   font-weight: 800;
   color: #ffffff;
   margin: 0 0 1rem 0;
-  text-align: left;
+  text-align: center;
   letter-spacing: -1px;
 }
 
@@ -136,6 +136,9 @@
   .about-desc-box .about-text{
     font-size: 1.5rem;
   }
+  .about-header{
+    text-align: center;
+  }
 }
 
 .sub-heading {
@@ -164,7 +167,7 @@
 
 .service-card {
   background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.20);
   padding: 2.5rem 2rem;
   border-radius: 1.2rem;
   transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
@@ -197,7 +200,6 @@
   font-family: inherit;
 }
 
-/* Tech Stack Matrix Section */
 .skills-container {
   width: 100%;
   max-width: 1100px;
@@ -212,7 +214,7 @@
   background: rgba(255, 255, 255, 0.01);
   padding: 2.5rem;
   border-radius: 1.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .skills-column {

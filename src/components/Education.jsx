@@ -69,7 +69,7 @@ const EducationPage = () => {
       ),
     },
     {
-      title: "Early 2026",
+      title: "Present",
       content: (
         <div 
           style={cardBoxStyle}
@@ -133,7 +133,7 @@ const EducationPage = () => {
       ),
     },
     {
-      title: "2024 - Ongoing",
+      title: "Present",
       content: (
         <div 
           style={cardBoxStyle}

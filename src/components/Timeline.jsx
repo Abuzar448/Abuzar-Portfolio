@@ -43,20 +43,19 @@ export const Timeline = ({ data }) => {
         
         <div className="grid grid-cols-1 gap-y-16 md:gap-y-32 w-full">
           {data.map((item, index) => (
-            <div key={index} className="grid grid-cols-[1fr_2fr] md:grid-cols-[35%_65%] w-full relative items-start gap-4 md:gap-8">
+            <div key={index} className="grid grid-cols-[1fr_2fr] md:grid-cols-[35%_65%] w-full relative items-start gap-2 md:gap-8 w-full">
              
               <div className="flex items-center relative min-h-[60px] pt-2 w-full">              
-                <h3 className="hidden md:block text-2xl lg:text-4xl font-bold text-zinc-300 pl-[90px] pr-2 break-words leading-tight z-10 bg-black">
+                <h3 className="md:block text-2xl lg:text-4xl font-bold text-zinc-300 pl-[90px] pr-2 break-words leading-tight z-10 bg-black">
                   {item.title}
                 </h3>
               </div>
 
               <div className="w-full flex flex-col items-start pr-4 md:pr-10">
                
-                <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-[#1991a3]">
+                <h3 className="md:hidden hidden block text-2xl mb-4 text-center font-bold text-[#1991a3]">
                   {item.title}
                 </h3>
-          
                 <div className="w-full flex justify-start">
                   {item.content}
                 </div>
