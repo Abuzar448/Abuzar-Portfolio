@@ -196,13 +196,6 @@ body {
   margin-top: 10px;
 }
 
-.education {
-  margin-top: 30px;
-}
-
-.education h2 {
-  color: #0f172a;
-}
 
 .education hr {
   border: none;
@@ -222,14 +215,6 @@ body {
   min-width: 250px;
   width: 100%;
   padding-top: 15px;
-}
-
-.right .profilePhoto {
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-  margin: 0 auto;
-  overflow: hidden;
 }
 
 .profilePhoto img {

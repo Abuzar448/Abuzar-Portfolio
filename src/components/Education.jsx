@@ -1,14 +1,48 @@
 import React from "react";
 import { Timeline } from "./Timeline";
-import BackToTop from "./BackToTop";
+import '../Style/Education.css'
 
 const EducationPage = () => {
+
+  const cardBoxStyle = {
+    width: "100%", // Mobile standard scale
+    maxWidth: "650px", // Desktop par exact same horizontal size maintain rahega
+    margin: "0 auto",
+    padding: "2.5rem 2rem",
+    background: "rgba(255, 255, 255, 0.02)",
+    border: "1px solid rgba(255, 255, 255, 0.05)",
+    borderRadius: "16px",
+    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5)",
+    transformStyle: "preserve-3d",
+    perspective: "1000px",
+    transition: "transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s, border-color 0.3s, box-shadow 0.4s",
+  };
+
+  const injectHoverEffect = (e, status) => {
+    if (status === "enter") {
+      e.currentTarget.style.transform = "rotateX(6deg) rotateY(-4deg) translateY(-8px) translateZ(10px)";
+      e.currentTarget.style.background = "rgba(255, 255, 255, 0.04)";
+      e.currentTarget.style.borderColor = "rgb(25, 145, 163)";
+      e.currentTarget.style.boxShadow = "0 20px 40px rgb(25, 145, 163,0.15), 0 30px 60px rgba(0, 0, 0, 0.7)";
+    } else {
+      e.currentTarget.style.transform = "rotateX(0deg) rotateY(0deg) translateY(0px) translateZ(0px)";
+      e.currentTarget.style.background = "rgba(255, 255, 255, 0.02)";
+      e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.05)";
+      e.currentTarget.style.boxShadow = "0 10px 30px rgba(0, 0, 0, 0.5)";
+    }
+  };
+
   const data = [
     {
       title: "2026",
       content: (
-        <div className="w-full text-center center">
-          <h4 className="text-xl font-bold text-white">
+        <div 
+          style={cardBoxStyle}
+          onMouseEnter={(e) => injectHoverEffect(e, "enter")}
+          onMouseLeave={(e) => injectHoverEffect(e, "leave")}
+          className="text-center center"
+        >
+          <h4 className="text-xl font-bold text-[#1991a3]">
             B.Tech Final Year - Computer Science
           </h4>
           <p className="text-zinc-400 mt-2">
@@ -37,8 +71,13 @@ const EducationPage = () => {
     {
       title: "Early 2026",
       content: (
-        <div className="w-full text-center">
-          <h4 className="text-xl font-bold text-white">
+        <div 
+          style={cardBoxStyle}
+          onMouseEnter={(e) => injectHoverEffect(e, "enter")}
+          onMouseLeave={(e) => injectHoverEffect(e, "leave")}
+          className="text-center"
+        >
+          <h4 className="text-xl font-bold text-[#1991a3]">
             AI Engineering & Python Journey
           </h4>
           <p className="text-zinc-400 mt-2">
@@ -47,7 +86,7 @@ const EducationPage = () => {
             <br />
           </p>
           <p className="text-zinc-400 mt-2">
-          Initiated a dedicated transition into <span className="text-blue-500">Artificial Intelligence</span>,<br /> leveraging 
+          Initiated a dedicated transition into <span className="text-[#ffffff]">Artificial Intelligence</span>,<br /> leveraging 
           Python to explore the intersection of data-driven intelligence and modern web applications.
         </p>
           <div className="mt-4 courseDiv">
@@ -64,12 +103,17 @@ const EducationPage = () => {
     {
       title: "2024-(2 months)",
       content: (
-        <div className="w-full text-center">
-          <h4 className="text-xl font-bold text-white">
+        <div 
+          style={cardBoxStyle}
+          onMouseEnter={(e) => injectHoverEffect(e, "enter")}
+          onMouseLeave={(e) => injectHoverEffect(e, "leave")}
+          className="text-center"
+        >
+          <h4 className="text-xl font-bold text-[#1991a3]">
             Web Developer Intern
           </h4>
           <p className="text-zinc-400 mt-2">
-            Received an offer letter from codsoft ,<br /> Builds various mini to high level project that shape my skills in right way. <br /> I have used <span className="text-blue-500"><strong>Core javascript Concepts , React, and Node.js
+            Received an offer letter from codsoft ,<br /> Builds various mini to high level project that shape my skills in right way. <br /> I have used <span className="text-[#ffffffad]"><strong>Core javascript Concepts , React, and Node.js
             with API Integretion.</strong></span><br /> 
             <br />
             I Especially worked on my frontend skills ,<br /> i have engaged with multiple of new terms and tasks those i didnt use before 
@@ -91,12 +135,17 @@ const EducationPage = () => {
     {
       title: "2024 - Ongoing",
       content: (
-        <div className="w-full text-center">
-          <h4 className="text-xl font-bold text-white">
+        <div 
+          style={cardBoxStyle}
+          onMouseEnter={(e) => injectHoverEffect(e, "enter")}
+          onMouseLeave={(e) => injectHoverEffect(e, "leave")}
+          className="text-center"
+        >
+          <h4 className="text-xl font-bold text-[#1991a3]">
             Full-Stack Mastery (MERN)
           </h4>
           <p className="text-zinc-400 mt-2">
-            Developed deep expertise in <span className="text-blue-500"><strong>MongoDB, Express, React, and Node.js
+            Developed deep expertise in <span className="text-[#ffffffad]"><strong>MongoDB, Express, React, and Node.js
             with API Integretion.</strong></span><br /> Built a 
             full-scale Social Media Platform and Employee Service Applications.
             <br />
@@ -122,19 +171,24 @@ const EducationPage = () => {
     {
       title: "2022",
       content: (
-        <div className="space-y-4">
+        <div 
+          style={cardBoxStyle}
+          onMouseEnter={(e) => injectHoverEffect(e, "enter")}
+          onMouseLeave={(e) => injectHoverEffect(e, "leave")}
+          className="space-y-4"
+        >
           <h4 className="text-xl md:text-2xl font-bold text-white">
             Higher Secondary Education (HSC)
           </h4>
 
           <p className="text-neutral-400 leading-relaxed">
             Completed my secondary education with a focus on{" "}
-            <span className="text-blue-500 font-medium">
+            <span className="text-[#1991a3] font-medium">
               Science and Mathematics
             </span>
             <div className="br"></div> This period was crucial in developing my
             analytical thinking and problem-solving skills,
-             which eventually led me to pursue <br /><span className="text-blue-500">Computer Science
+             which eventually led me to pursue <br /><span className="text-[#1991a3]">Computer Science
             Engineering.</span>
           </p>
           <p className="text-[18px] ">
@@ -161,7 +215,7 @@ const EducationPage = () => {
   ];
 
   return (
-    <div className="relative w-full flex pt-8 bg-black">
+    <div className="relative w-full flex pt-8 bg-black overflow-hidden">
       <Timeline data={data} />
     </div>
   );
