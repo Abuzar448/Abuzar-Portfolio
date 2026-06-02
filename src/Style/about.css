@@ -7,6 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   overflow: hidden;
   font-family: "Climate Crisis", sans-serif;
 }
@@ -134,5 +135,135 @@
   }
   .about-desc-box .about-text{
     font-size: 1.5rem;
+  }
+}
+
+.sub-heading {
+  font-size: 4rem;
+  color: #ffffff;
+  margin: 5rem 0 2rem 0;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Services / Focus Grid Structure */
+.services-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2.5rem 2rem;
+  border-radius: 1.2rem;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  text-align: left;
+}
+
+.service-card:hover {
+  background: rgba(124, 58, 237, 0.04);
+  border-color: #1991a3;
+  transform: translateY(-5px);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  display: inline-block;
+  margin-bottom: 1.2rem;
+}
+
+.service-card h5 {
+  font-size: 1.35rem;
+  color: #fff;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.service-card p {
+  color: #a0aec0;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  font-family: inherit;
+}
+
+/* Tech Stack Matrix Section */
+.skills-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
+  background: rgba(255, 255, 255, 0.01);
+  padding: 2.5rem;
+  border-radius: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.skills-column {
+  text-align: left;
+}
+
+.skills-column h6 {
+  color: #1991a3;
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.skills-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.skills-column li {
+  color: #a0aec0;
+  font-size: 1.2rem;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  align-items: center;
+}
+
+.skills-column li::before {
+  content: "→";
+  color: #7c3aed;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* Tablet & Mobile Adaptive Fixes */
+@media (max-width: 768px) {
+  .sub-heading {
+    font-size: 1.8rem;
+    margin: 3.5rem 0 1.5rem 0;
+  }
+  
+  .services-grid, .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .skills-grid {
+    padding: 1.5rem;
   }
 }
