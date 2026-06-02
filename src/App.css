@@ -34,8 +34,7 @@ body {
   background-color: var(--background);
 }
 
-
-#cursor{
+#cursor {
   height: 30px;
   width: 30px;
   border-radius: 50%;
@@ -44,7 +43,7 @@ body {
   position: fixed;
   z-index: 1000;
   transition: all linear 0.1s;
-  mix-blend-mode:difference;
+  mix-blend-mode: difference;
 }
 
 .app {
@@ -68,7 +67,7 @@ body {
 }
 .navbar {
   position: absolute;
-   overflow: hidden; 
+  overflow: hidden;
   top: 0;
   left: 2;
   right: 2;
@@ -88,8 +87,7 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-variation-settings:
-    "YEAR" 1979;
+  font-variation-settings: "YEAR" 1979;
 }
 .nav-links {
   display: flex;
@@ -129,12 +127,7 @@ body {
   width: 200%;
   height: 200%;
 
-  background: conic-gradient(
-    transparent,
-    transparent,
-    transparent,
-    #6b7280
-  );
+  background: conic-gradient(transparent, transparent, transparent, #6b7280);
 
   animation: borderRotate 4s linear infinite;
 }
@@ -156,7 +149,6 @@ body {
     transform: rotate(360deg);
   }
 }
-
 
 /* Main container */
 .main {
@@ -195,7 +187,6 @@ body {
   font-weight: 800;
   margin-top: 10px;
 }
-
 
 .education hr {
   border: none;
@@ -696,7 +687,7 @@ body {
     font-size: 4rem !important;
     width: 100% !important;
   }
-  .hero{
+  .hero {
     min-height: 110vh !important;
   }
   .logo {
@@ -719,24 +710,30 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
-  #cursor{
+  #cursor {
     display: none !important;
   }
-  .string{
+  .string {
     display: none !important;
   }
-  #education{
+  #education {
     margin-top: 4rem;
     padding: 10px !important;
   }
-  #education h2{
+  #education h2 {
     margin-top: 4rem;
   }
-  .certificateBox{
+  .certificateBox {
     margin-bottom: 5rem;
   }
-  .certificateBox .img{
+  .certificateBox .img {
     margin-top: 2rem;
+  }
+  .skill_heading h2{
+    font-size: 2.5rem !important;
+  }
+  .skill_heading span{
+    font-size: 2.5rem !important;
   }
 }
 
@@ -796,10 +793,14 @@ body {
   border-radius: 10px;
 }
 
+.movingSkills1 {
+  padding: 15px;
+  cursor: pointer;
+  margin-top: 4rem !important;
+}
 .movingSkills {
   padding: 15px;
   cursor: pointer;
-  margin-top: 40px !important;
 }
 .skillsBox {
   margin-top: 25px;
@@ -821,7 +822,7 @@ body {
   transition: all linear 0.2s;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  transform: translateY(-5px); /* Chota sa floating effect */
+  transform: translateY(-5px);
 }
 
 @media (max-width: 768px) {
@@ -870,16 +871,15 @@ body {
   transition: all 0.1s ease-in;
 }
 
-
 /* tablet view */
 @media (min-width: 768px) and (max-width: 1024px) {
   /* Navbar adjustments */
   .navbar {
-    padding: 3rem 6%; 
+    padding: 3rem 6%;
     height: 65px;
   }
   .nav-links {
-    gap: 1.6rem; 
+    gap: 1.6rem;
   }
 
   .logo {
@@ -888,27 +888,27 @@ body {
 
   .hero {
     padding: 0 4%;
-    height: auto; 
+    height: auto;
     min-height: 100vh;
-    padding-top: 80px; 
+    padding-top: 80px;
     overflow: hidden;
     width: 100%;
   }
 
   .hero-container {
-    flex-direction: row; 
-    gap: 1.5rem; 
+    flex-direction: row;
+    gap: 1.5rem;
     justify-content: center;
     align-items: center;
     width: 100%;
   }
 
   .hero-content {
-    max-width: 100%; 
+    max-width: 100%;
   }
 
   .glitch {
-    font-size: 2.8rem; 
+    font-size: 2.8rem;
   }
 
   .hero-subtitle {
@@ -921,61 +921,67 @@ body {
   }
 
   .cta-buttons {
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     gap: 0.8rem;
   }
 
-  .cta-primary, .cta-secondary {
-    min-width: 140px; 
+  .cta-primary,
+  .cta-secondary {
+    min-width: 140px;
     padding: 12px 10px;
     font-size: 0.9rem;
   }
 
   .hero-image-container {
-    display: none; 
+    display: none;
   }
 
   .code-display {
-    height: 400px;   
-    overflow: hidden; 
+    height: 400px;
+    overflow: hidden;
   }
 
- 
   .code-display pre {
-    padding: 1rem !important; 
-    font-size: 0.75rem !important; 
+    padding: 1rem !important;
+    font-size: 0.75rem !important;
   }
 
   .floating-card {
-    right: 0; 
+    right: 0;
     bottom: 1rem;
     padding: 0.8rem 1rem;
-    width: 80%; 
+    width: 80%;
   }
 
-  .string{
+  .string {
     display: none !important;
   }
-
 }
 
-#education{
+#education {
   padding: 4rem;
 }
-#education h2{
+#education h2 {
   margin-bottom: 8rem;
 }
 
-.tab{
+.tab {
   padding: 30px;
   text-align: center;
 }
-.tabSkill{
+.tabSkill {
   padding: 12px;
   color: white;
 }
 
-.skill-category{
+.skill-category {
   padding: 6px;
 }
 
+.skillsMainBox .skill_heading h2 {
+  font-family: "Climate Crisis", sans-serif;
+  font-size: 4rem;
+}
+.skillsMainBox .skill_heading {
+  margin-top: 6rem !important;
+}
