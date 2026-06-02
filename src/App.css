@@ -549,7 +549,12 @@ body {
     /* Beech ka color */ rgba(0, 0, 0, 1) 100% /* Neeche poora black */
   );
 }
-
+.certificate_heading{
+    font-family: "Climate Crisis", sans-serif;
+}
+.timeline_title{
+font-family: "Climate Crisis", sans-serif;
+}
 .certification h2 {
   text-align: center;
   font-size: 2.5rem;

@@ -46,7 +46,7 @@ export const Timeline = ({ data }) => {
             <div key={index} className="grid grid-cols-[1fr_2fr] md:grid-cols-[35%_65%] w-full relative items-start gap-2 md:gap-8 w-full">
              
               <div className="flex items-center relative min-h-[60px] pt-2 w-full">              
-                <h3 className="md:block text-2xl lg:text-4xl font-bold text-zinc-300 pl-[90px] pr-2 break-words leading-tight z-10 bg-black">
+                <h3 className="md:block text-2xl lg:text-4xl font-bold text-zinc-300 pl-[90px] pr-2 break-words leading-tight z-10 bg-black timeline_title">
                   {item.title}
                 </h3>
               </div>

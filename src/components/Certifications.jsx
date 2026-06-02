@@ -51,9 +51,9 @@ const Certifications = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="certificateText text-2xl md:text-4xl font-bold text-white mb-16 tracking-tight text-center lg:text-left"
+          className="certificateText text-3xl md:text-7xl font-bold text-white mb-16 tracking-tight text-center lg:text-left"
         >
-          Certifications & Achievements
+          <span className="certificate_heading text-4xl md:text-7xl w-full ">Certifications <span className="text-[#1991a3]">&</span> Achievements</span>
         </motion.h2>
         <br />
         <br />
