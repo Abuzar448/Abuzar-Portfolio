@@ -112,7 +112,7 @@ const About = () => {
           ))}
         </div>
       </motion.div>
-{/* new */}
+      {/* new */}
       <motion.div
         className="skills-container animate-item"
         variants={itemVariants}
