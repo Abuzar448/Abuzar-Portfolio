@@ -27,13 +27,12 @@ function App() {
       <CustomCursor></CustomCursor>
       <div className="pt-20 md:pt-0">
         <Hero />
-        
+        <SvgString></SvgString>
         <About />
         <Education />
         <Skills />
         <Projects />
         <Certifications />
-        <SvgString></SvgString>
         <Contact />
         <Footer/>
       </div>
