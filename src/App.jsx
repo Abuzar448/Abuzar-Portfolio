@@ -12,6 +12,7 @@ import Education from "./components/Education";
 import CustomCursor from "./components/CustomCursor";
 import SvgString from "./components/SvgString";
 import Footer from "./components/Footer";
+import GithubStatus from "./components/GithubStatus";
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
@@ -29,6 +30,7 @@ function App() {
         <Hero />
         <SvgString></SvgString>
         <About />
+        <GithubStatus/>
         <Education />
         <Skills />
         <Projects />

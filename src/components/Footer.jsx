@@ -24,7 +24,6 @@ const Footer = () => {
     <footer className="main-footer">
       <div className="footer-container">
         
-        {/* Left Column: Brand & Interactive Mail Node */}
         <div className="footer-brand">
           <h3 className="footer-logo">
             Abuzar <span className="text-[#199293] hidden md:inline-block">.</span>
@@ -38,7 +37,7 @@ const Footer = () => {
             </div>
             <div className="mail-text">
               <span>Drop a message</span>
-              <strong>your-email@example.com</strong>
+              <strong>aburaja2654@gmail.com</strong>
             </div>
             <FiArrowUpRight className="arrow-diagonal" size={18} />
           </a>

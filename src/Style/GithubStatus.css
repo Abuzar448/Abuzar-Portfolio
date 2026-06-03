@@ -1,0 +1,266 @@
+/* --- GitHub Section Architecture Engine --- */
+.github-section {
+  padding: 6rem 2rem;
+  background: #000;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.github-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.github-heading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  font-family: "Climate Crisis", sans-serif;
+  font-size: 5rem !important;
+}
+
+.github-heading span {
+  color: #1991a3;
+}
+
+.github-subheading {
+  color: #8b949e;
+  font-size: 1rem;
+  text-align: center;
+  max-width: 600px;
+  margin: -1rem auto 1rem auto;
+  line-height: 1.6;
+}
+
+/* Identity & Metrics Row Splits */
+.github-top-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.github-profile-card {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.avatar-frame {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid #1991a3;
+  padding: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.avatar-frame img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.github-profile-card h3 {
+  color: #fff;
+  margin: 0 0 0.4rem 0;
+  font-size: 1.3rem;
+}
+
+.github-profile-card a {
+  color: #1991a3;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-family: monospace;
+}
+
+/* Custom Tabular Grid Wrapper */
+.github-metrics-container {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.metrics-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.metrics-table-header h4 {
+  color: #f0f6fc;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.live-indicator {
+  font-size: 0.75rem;
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.06);
+  padding: 4px 10px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.metrics-table-header .pulse {
+  width: 6px;
+  height: 6px;
+  background: #34d399;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px #34d399;
+}
+
+.metrics-grid-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.metric-label {
+  color: #8b949e;
+  font-size: 0.95rem;
+}
+
+.metric-value {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.status-verified {
+  color: #34d399;
+  font-size: 0.85rem;
+  background: rgba(52, 211, 153, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* Heatmap Graph Layout Engine */
+.github-graph-card {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.github-graph-card .card-header h4 {
+  color: #f0f6fc;
+  margin: 0 0 1.2rem 0;
+  font-size: 1rem;
+}
+
+.graph-scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.github-graph-img {
+  min-width: 800px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Bottom Stats Column Split Rules */
+.github-stats-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.stats-widget-card {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.stats-widget-card img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+}
+
+/* Custom Scrollbar override for Graph Horizontal Containers */
+.graph-scroll-container::-webkit-scrollbar {
+  height: 5px;
+}
+.graph-scroll-container::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.2);
+}
+.graph-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(25, 145, 163, 0.3);
+  border-radius: 10px;
+}
+
+/* --- Responsive Media Queries (Tablets & Desktop) --- */
+@media (max-width: 768px) {
+  .github-heading{
+    font-size: 2.2rem !important;
+  }
+}
+@media (min-width: 768px) {
+  .github-top-row {
+    flex-direction: row;
+  }
+  .github-profile-card {
+    width: 30%;
+  }
+  .github-metrics-container {
+    width: 70%;
+  }
+  .github-stats-row {
+    flex-direction: row;
+  }
+  .stats-widget-card {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .github-heading {
+    font-size: 3.5rem;
+  }
+}
