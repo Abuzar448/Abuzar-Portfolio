@@ -239,6 +239,9 @@
     justify-content: space-between;
     align-items: flex-start;
   }
+  .footer-logo{
+    font-size: 4rem;
+  }
 
   .footer-brand {
     width: 45%;

@@ -27,7 +27,7 @@ const Footer = () => {
         {/* Left Column: Brand & Interactive Mail Node */}
         <div className="footer-brand">
           <h3 className="footer-logo">
-            Abuzar <span>.</span>
+            Abuzar <span className="text-[#199293] hidden md:inline-block">.</span>
           </h3>
           <p className="footer-tagline">
             Building scalable full-stack solutions and robust architectures with precision.
