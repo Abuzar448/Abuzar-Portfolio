@@ -1,31 +1,123 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { useGSAP } from "@gsap/react";
 import "../Style/about.css";
+import gsap from "gsap";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
-  const containerVariants = {
-    initial: {},
-    animate: {
-      transition: {
-        staggerChildren: 0.18,
-      },
-    },
-  };
+  const containerRef = useRef(null);
 
-  const itemVariants = {
-    initial: {
-      opacity: 0,
-      y: 30,
+  useGSAP(
+    () => {
+      gsap.from(".about-header", {
+        y: 100,
+        opacity: 0,
+        ease: "power1.out",
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".about-header",
+          start: "top 90%",
+          end: "top 100%",
+          scrub: 2,
+          toggleActions: "play none none none",
+        },
+      });
+      gsap.from(".about-meta-box", {
+        y: 80,
+        opacity: 0,
+        ease: "power1.out",
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".about-meta-box",
+          start: "top 80%",
+          end: "top 100%",
+          scrub: 2,
+          toggleActions: "play none none none",
+        },
+      });
+
+      gsap.from(".about-desc-box .about-text", {
+        y: 80,
+        opacity: 0,
+        stagger: 4,
+        ease: "power1.out",
+        duration: 2,
+        scrollTrigger: {
+          trigger: ".about-desc-box .about-text",
+          start: "top 60%",
+          end: "top 100%",
+          scrub: 2,
+          toggleActions: "play none none none",
+        },
+      });
+
+      gsap.from(".services-container .sub-heading", {
+        y: 80,
+        opacity: 0,
+        stagger: 4,
+        ease: "power1.out",
+        duration: 2,
+        scrollTrigger: {
+          markers: true,
+          trigger: ".services-container .sub-heading",
+          start: "top 60%",
+          end: "top 100%",
+          scrub: 2,
+          toggleActions: "play none none none",
+        },
+      });
+
+      gsap.from(".services-container .services-grid", {
+        y: 100,
+        opacity: 0,
+        stagger: 8,
+        ease: "power1.out",
+        duration: 4,
+        scrollTrigger: {
+          markers: true,
+          trigger: ".services-container .services-grid",
+          start: "top 60%",
+          end: "top 100%",
+          scrub: 2,
+          toggleActions: "play none none none",
+        },
+      });
+
+      gsap.from(".skills-container .sub-heading", {
+        y: 100,
+        opacity: 0,
+        stagger: 8,
+        ease: "power1.out",
+        duration: 4,
+        scrollTrigger: {
+          markers: true,
+          trigger: ".skills-container .sub-heading",
+          start: "top 60%",
+          end: "top 100%",
+          scrub: 2,
+          toggleActions: "play none none none",
+        },
+      });
+
+      gsap.from(".skills-container .skills-grid", {
+        y: 100,
+        opacity: 0,
+        stagger: 8,
+        ease: "power1.out",
+        duration: 4,
+        scrollTrigger: {
+          markers: true,
+          trigger: ".skills-container .skills-grid",
+          start: "top 60%",
+          end: "top 100%",
+          scrub: 2,
+          toggleActions: "play none none none",
+        },
+      });
     },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.7,
-        ease: [0.215, 0.61, 0.355, 1.0], // Premium cubic-bezier curve
-      },
-    },
-  };
+    { scope: containerRef },
+  );
 
   const specializations = [
     {
@@ -52,30 +144,24 @@ const About = () => {
   };
 
   return (
-    <motion.section
-      className="about-section"
-      variants={containerVariants}
-      initial="initial"
-      whileInView="animate"
-      viewport={{ once: true, margin: "-100px" }}
-    >
+    <section className="about-section relative" ref={containerRef}>
       <div className="about-glow-orb" />
 
       <div className="about-wrapper">
-        <motion.div className="about-header" variants={itemVariants}>
+        <div className="about-header">
           <h2 className="about-header heading">Abuzar Khan</h2>
           <div className="accent-bar"></div>
-        </motion.div>
+        </div>
 
         <div className="about-grid">
-          <motion.div className="about-meta-box" variants={itemVariants}>
+          <div className="about-meta-box">
             <h3 className="profile-name">
               Full-Stack Web Developer & Designer
             </h3>
             <p className="place">Muktainagar, dist.Jalgaon, Maharashtra</p>
-          </motion.div>
+          </div>
 
-          <motion.div className="about-desc-box" variants={itemVariants}>
+          <div className="about-desc-box">
             <p className="about-text">
               Currently pursuing my{" "}
               <span className="highlight-text">B.Tech</span> in{" "}
@@ -93,14 +179,11 @@ const About = () => {
               gap between pixel-perfect UI/UX design and highly scalable system
               performance.
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
 
-      <motion.div
-        className="services-container animate-item"
-        variants={itemVariants}
-      >
+      <div className="services-container">
         <h4 className="sub-heading">What I Focus On</h4>
         <div className="services-grid">
           {specializations.map((spec, index) => (
@@ -111,12 +194,9 @@ const About = () => {
             </div>
           ))}
         </div>
-      </motion.div>
-      {/* new */}
-      <motion.div
-        className="skills-container animate-item"
-        variants={itemVariants}
-      >
+      </div>
+
+      <div className="skills-container">
         <h4 className="sub-heading">Current Arsenal</h4>
         <div className="skills-grid">
           <div className="skills-column">
@@ -144,8 +224,8 @@ const About = () => {
             </ul>
           </div>
         </div>
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
 };
 
