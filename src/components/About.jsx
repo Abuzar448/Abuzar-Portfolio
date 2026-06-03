@@ -59,7 +59,6 @@ const About = () => {
         ease: "power1.out",
         duration: 2,
         scrollTrigger: {
-          markers: true,
           trigger: ".services-container .sub-heading",
           start: "top 60%",
           end: "top 100%",
@@ -75,7 +74,6 @@ const About = () => {
         ease: "power1.out",
         duration: 4,
         scrollTrigger: {
-          markers: true,
           trigger: ".services-container .services-grid",
           start: "top 60%",
           end: "top 100%",
@@ -91,7 +89,6 @@ const About = () => {
         ease: "power1.out",
         duration: 4,
         scrollTrigger: {
-          markers: true,
           trigger: ".skills-container .sub-heading",
           start: "top 60%",
           end: "top 100%",
@@ -107,7 +104,6 @@ const About = () => {
         ease: "power1.out",
         duration: 4,
         scrollTrigger: {
-          markers: true,
           trigger: ".skills-container .skills-grid",
           start: "top 60%",
           end: "top 100%",
