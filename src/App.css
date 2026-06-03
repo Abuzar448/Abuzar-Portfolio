@@ -408,12 +408,7 @@ body {
 
 .contact {
   padding: 3rem 5%;
-  background: linear-gradient(
-    210deg,
-    #000 0%,
-    /* Upar ka color */ #000 20%,
-    /* Beech ka color */ rgb(2, 9, 27) 100% /* Neeche poora black */
-  );
+  background: transparent;
   position: relative;
 }
 
@@ -475,7 +470,7 @@ body {
 
 .submit-btn {
   padding: 1rem;
-  background: var(--primary-color);
+  background: #1991a3;
   color: white;
   border: none;
   border-radius: 0.5rem;
@@ -483,7 +478,7 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  box-shadow: 0 4px 12px rgba(69, 68, 71, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -528,13 +523,6 @@ body {
   color: #f87171;
 }
 
-.footer {
-  text-align: center;
-  padding: 2rem;
-  background: #000;
-  color: var(--text-color);
-  border-top: 1px solid var(--card-border);
-}
 
 /* Certification Sections */
 
@@ -695,6 +683,9 @@ font-family: "Climate Crisis", sans-serif;
   .hero {
     min-height: 110vh !important;
   }
+  .hero-container{
+    scale:0.9;
+  }
   .logo {
     display: none;
   }
@@ -744,6 +735,7 @@ font-family: "Climate Crisis", sans-serif;
     font-size:2.8rem !important;
     margin-top: 25px;
   }
+
 }
 
 .projects .project_heading{
@@ -782,11 +774,22 @@ font-family: "Climate Crisis", sans-serif;
   text-align: center;
   width: 100%;
   color: white;
+  margin-top: 30px;
+  font-family: "Climate Crisis", sans-serif;
+}
+.social-heading{
+  font-family: "Climate Crisis", sans-serif;
+  letter-spacing: 1.5px;
+}
+.social_div{
+  display: flex;
+  width: max-content;
+  padding: 2rem;
+  position: absolute;
+  bottom:2rem;
+  right: 4rem;
 }
 
-.heading {
-  margin-top: 30px;
-}
 
 .educationMain {
   padding-top: 80px;
@@ -865,8 +868,8 @@ font-family: "Climate Crisis", sans-serif;
     height: 100%;
   }
   .contact-anime {
-    width: 40%;
-    height: 40%;
+    width: 50%;
+    height: 50%;
   }
 }
 

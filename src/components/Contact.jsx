@@ -90,7 +90,7 @@ const Contact = () => {
     <>
       <motion.section
         id="contact"
-        className="contact"
+        className="contact relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -105,7 +105,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="font-semibold heading"
           >
-            Get in Touch
+            Let's Connect
           </motion.h2>
 
           <motion.div className="contact-content" variants={fadeInUp}>
@@ -161,20 +161,6 @@ const Contact = () => {
         </div>
         <div className="contact-anime">
           <ContactAnimation></ContactAnimation>
-          <div className="flex gap-8 w-full items-center justify-center">
-              <p className="font-semibold social-heading">Social Links : </p>
-            
-            <div className="w-[50px] h-[50px] border border-blue-300 cursor-pointer flex items-center justify-center bg-[#5c55e2] hover:border-2 hover:border-blue-400 hover:bg-transparent rounded-full">
-              <a href="https://www.linkedin.com/in/abuzar-khan-4a03b0290/"><FaLinkedin /></a>
-            </div>
-            <div className="w-[50px] h-[50px] border border-blue-300 cursor-pointer flex items-center justify-center bg-[#5c55e2] hover:border-2 hover:border-blue-400 hover:bg-transparent rounded-full">
-              <a href="https://www.instagram.com/abuzar_khan_t/"><FaInstagramSquare /> </a>
-            </div>
-            <div className="w-[50px] h-[50px] border border-blue-300 cursor-pointer flex items-center justify-center bg-[#5c55e2] hover:border-2 hover:border-blue-400 hover:bg-transparent rounded-full">
-              <a href="https://github.com/Abuzar448"><FaGithub /></a>
-            </div>
-            
-          </div>
         </div>
       </motion.section>
     </>

@@ -4,19 +4,19 @@ import '../Style/Education.css'
 
 const EducationPage = () => {
 
-  const cardBoxStyle = {
-    width: "100%", // Mobile standard scale
-    maxWidth: "650px", // Desktop par exact same horizontal size maintain rahega
-    margin: "0 auto",
-    padding: "2.5rem 2rem",
-    background: "rgba(255, 255, 255, 0.02)",
-    border: "1px solid rgba(255, 255, 255, 0.05)",
-    borderRadius: "16px",
-    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5)",
-    transformStyle: "preserve-3d",
-    perspective: "1000px",
-    transition: "transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s, border-color 0.3s, box-shadow 0.4s",
-  };
+const cardBoxStyle = {
+  width: "100%", 
+  maxWidth: "650px", 
+  margin: "0 auto",
+  padding: "2.5rem 2rem",
+  background: "rgba(255, 255, 255, 0.02)",
+  border: "1px solid rgba(255, 255, 255, 0.05)",
+  borderRadius: "16px",
+  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5)",
+  transformStyle: "preserve-3d",
+  perspective: "1000px",
+  transition: "transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s, border-color 0.3s, box-shadow 0.4s",
+};
 
   const injectHoverEffect = (e, status) => {
     if (status === "enter") {
@@ -40,7 +40,7 @@ const EducationPage = () => {
           style={cardBoxStyle}
           onMouseEnter={(e) => injectHoverEffect(e, "enter")}
           onMouseLeave={(e) => injectHoverEffect(e, "leave")}
-          className="text-center center"
+          className="text-center center "
         >
           <h4 className="text-xl font-bold text-[#1991a3]">
             B.Tech Final Year - Computer Science

@@ -11,6 +11,7 @@ import Skills from "./components/Skills";
 import Education from "./components/Education";
 import CustomCursor from "./components/CustomCursor";
 import SvgString from "./components/SvgString";
+import Footer from "./components/Footer";
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
@@ -34,13 +35,7 @@ function App() {
         <Certifications />
         <SvgString></SvgString>
         <Contact />
-
-        <>
-          <p className="footer">
-            © {new Date().getFullYear()} | Designed & Developed with Precision
-            by <strong>Abuzar Khan</strong>.
-          </p>
-        </>
+        <Footer/>
       </div>
     </div>
   );

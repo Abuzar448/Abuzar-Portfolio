@@ -54,7 +54,7 @@ export const StickyScroll = ({ content }) => {
     }
   };
 
-  // RAW CSS OBJECT: Browser level scrollbars ko invisible karne ke liye inline fallback engine
+
   const hideScrollbarStyle = {
     msOverflowStyle: "none",  /* IE and Edge */
     scrollbarWidth: "none",   /* Firefox */
@@ -66,7 +66,6 @@ export const StickyScroll = ({ content }) => {
       ref={ref}
       className="w-full flex flex-col lg:flex-row justify-center items-center relative gap-12 bg-transparent"
     >
-      {/* LEFT CONTENT: TEXT BLOCK & MOBILE IMAGES */}
       <div className="relative flex items-start w-full lg:w-1/2">
         <div className="w-full">
           {content.map((item, index) => {
@@ -76,7 +75,7 @@ export const StickyScroll = ({ content }) => {
                 <motion.h3
                   animate={{ opacity: activeCard === index ? 1 : 0.2 }}
                   transition={{ duration: 0.2 }}
-                  className="text-xl md:text-2xl font-bold text-white tracking-tight"
+                  className="text-xl md:text-2xl font-bold text-[#1991A3] tracking-tight"
                 >
                   {item.title}
                 </motion.h3>
@@ -86,7 +85,7 @@ export const StickyScroll = ({ content }) => {
                   transition={{ duration: 0.2 }}
                   className="text-sm md:text-base text-neutral-400 mt-4 leading-relaxed"
                 >
-                  {item.description}
+                  {"~ "+item.description+""}
                 </motion.p>
                 
                 {/* MOBILE REVEAL IMAGE CONTAINER WITH ACTIVE DOTS */}

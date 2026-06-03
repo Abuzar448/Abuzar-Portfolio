@@ -1,0 +1,257 @@
+/* --- Production Footer Layout Engine --- */
+.main-footer {
+  background: transparent;
+  padding: 5rem 2rem 2rem 2rem;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 450px;
+}
+
+.footer-logo {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  font-family: "Climate Crisis", sans-serif;
+  font-size: 60px;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.footer-logo span {
+  color: #1991a3;
+}
+
+.footer-tagline {
+  color: #8b949e;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.footer-mail-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  margin-top: 0.5rem;
+}
+
+.footer-mail-card:hover {
+  background: rgba(25, 145, 163, 0.04);
+  border-color: rgba(25, 145, 163, 0.3);
+}
+
+.mail-icon-wrapper {
+  background: rgba(25, 145, 163, 0.1);
+  color: #1991a3;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mail-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mail-text span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #8b949e;
+  letter-spacing: 0.5px;
+}
+
+.mail-text strong {
+  font-size: 0.95rem;
+  color: #f0f6fc;
+}
+
+.arrow-diagonal {
+  position: absolute;
+  right: 1.5rem;
+  color: #484f58;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.footer-mail-card:hover .arrow-diagonal {
+  transform: translate(2px, -2px);
+  color: #1991a3;
+}
+
+/* Navigation & Connections Grid Systems */
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+.footer-link-group h4 {
+  color: #f0f6fc;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.2rem;
+  margin-top: 0;
+}
+
+.footer-link-group ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-link-group ul a {
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.footer-link-group ul a:hover {
+  color: #1991a3;
+}
+
+/* Modern Minimalist Social Strip */
+.footer-social-strip {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c9d1d9;
+  transition: all 0.3s ease;
+}
+
+.social-icon-box:hover {
+  border-color: #1991a3;
+  color: #1991a3;
+  background: rgba(25, 145, 163, 0.05);
+  box-shadow: 0 0 15px rgba(25, 145, 163, 0.15);
+}
+
+/* --- Baseline Footer Strip & Pulse Status Animation --- */
+.footer-baseline {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 4rem;
+  padding-top: 2rem;
+}
+
+.baseline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+  text-align: center;
+}
+
+.baseline-content p {
+  color: #1991a3;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.baseline-content strong {
+  color: #8b949e;
+}
+
+.baseline-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(52, 211, 153, 0.06);
+  border: 1px solid rgba(52, 211, 153, 0.15);
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: #34d399;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  background: #34d399;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+  animation: statusPulse 2s infinite;
+}
+
+@keyframes statusPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(52, 211, 153, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+  }
+}
+
+/* --- Responsive Media Queries (Tablets & Desktops) --- */
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer-brand {
+    width: 45%;
+  }
+
+  .footer-links-grid {
+    grid-template-columns: repeat(2, minmax(140px, auto));
+    gap: 4rem;
+  }
+
+  .baseline-content {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
