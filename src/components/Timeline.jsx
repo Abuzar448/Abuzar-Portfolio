@@ -1,7 +1,11 @@
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll, useTransform, motion, easeInOut } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import BackToTop from "./BackToTop";
 import '../Style/Education.css'
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+gsap.registerPlugin(ScrollTrigger);
 
 export const Timeline = ({ data }) => {
   const ref = useRef(null);
@@ -28,6 +32,22 @@ export const Timeline = ({ data }) => {
 
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+
+  useGSAP(()=>{
+    gsap.from('.educationMain .edu_heading',{
+      y:100,
+      opacity:0,
+      duration:2,
+      ease:easeInOut,
+      scrollTrigger:{
+        trigger:'.educationMain .edu_heading',
+        start:'top 80%',
+        end:'top 100%',
+        scrub: 2,
+        toggleActions: "play none none none",
+      }
+    })
+  },{scope:containerRef});
 
   return (
     <div id="education" className="w-full bg-black font-sans educationMain" ref={containerRef}>

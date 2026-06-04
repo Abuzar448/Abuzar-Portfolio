@@ -377,7 +377,6 @@ const GithubStatus = () => {
         duration: 3,
         stagger:4,
         scrollTrigger: {
-          markers:true,
           trigger: ".github-stats-row",
           start: "top 60%",
           end: "top 100%",
