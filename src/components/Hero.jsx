@@ -70,13 +70,13 @@ const Hero = () => {
 
             <motion.div className="cta-buttons" variants={staggerContainer}>
               <motion.a
-                href="#education"
+                href="#projects"
                 className="cta-primary"
                 variants={slideRight}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                My Education
+                My Work
               </motion.a>
               <motion.a
                 href="/Abuzar_k_Resume.pdf"

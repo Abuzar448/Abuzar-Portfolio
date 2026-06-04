@@ -13,7 +13,7 @@ const About = () => {
       gsap.from(".about-header", {
         y: 100,
         opacity: 0,
-        ease: "power1.out",
+        ease: "easeIn",
         duration: 1,
         scrollTrigger: {
           trigger: ".about-header",
@@ -26,7 +26,7 @@ const About = () => {
       gsap.from(".about-meta-box", {
         y: 80,
         opacity: 0,
-        ease: "power1.out",
+        ease: "easeIn",
         duration: 1,
         scrollTrigger: {
           trigger: ".about-meta-box",
@@ -41,7 +41,7 @@ const About = () => {
         y: 80,
         opacity: 0,
         stagger: 4,
-        ease: "power1.out",
+        ease: "easeIn",
         duration: 2,
         scrollTrigger: {
           trigger: ".about-desc-box .about-text",
@@ -56,7 +56,7 @@ const About = () => {
         y: 80,
         opacity: 0,
         stagger: 4,
-        ease: "power1.out",
+        ease: "easeIn",
         duration: 2,
         scrollTrigger: {
           trigger: ".services-container .sub-heading",
@@ -71,7 +71,7 @@ const About = () => {
         y: 100,
         opacity: 0,
         stagger: 8,
-        ease: "power1.out",
+        ease: "easeIn",
         duration: 4,
         scrollTrigger: {
           trigger: ".services-container .services-grid",
@@ -86,7 +86,7 @@ const About = () => {
         y: 100,
         opacity: 0,
         stagger: 8,
-        ease: "power1.out",
+        ease: "easeIn",
         duration: 4,
         scrollTrigger: {
           trigger: ".skills-container .sub-heading",
@@ -101,7 +101,7 @@ const About = () => {
         y: 100,
         opacity: 0,
         stagger: 8,
-        ease: "power1.out",
+        ease: "easeIn",
         duration: 4,
         scrollTrigger: {
           trigger: ".skills-container .skills-grid",

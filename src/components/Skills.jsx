@@ -13,10 +13,10 @@ const Skills = () => {
   useGSAP(
     () => {
       gsap.from(".skillsMainBox .skill_heading", {
-        y: 80,
+        y: 100,
         opacity: 0,
         duration: 4,
-        ease: easeIn,
+        ease: 'easeIn',
         scrollTrigger: {
           trigger: ".skillsMainBox .skill_heading",
           start: "top 80%",
@@ -30,7 +30,7 @@ const Skills = () => {
         opacity: 0,
         duration: 1,
         stagger: 1,
-        ease: easeIn,
+        ease: 'easeIn',
         scrollTrigger: {
           trigger: ".skillsBox",
           start: "top 80%",

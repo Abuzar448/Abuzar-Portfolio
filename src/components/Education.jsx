@@ -1,222 +1,127 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Timeline } from "./Timeline";
-import '../Style/Education.css'
+import '../Style/Education.css';
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const EducationPage = () => {
+  const containerRef = useRef(null);
 
-const cardBoxStyle = {
-  width: "100%", 
-  maxWidth: "650px", 
-  margin: "0 auto",
-  padding: "2.5rem 2rem",
-  background: "rgba(255, 255, 255, 0.02)",
-  border: "1px solid rgba(255, 255, 255, 0.05)",
-  borderRadius: "16px",
-  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5)",
-  transformStyle: "preserve-3d",
-  perspective: "1000px",
-  transition: "transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s, border-color 0.3s, box-shadow 0.4s",
-};
+   useGSAP(() => {
+      gsap.from('.education .edu_heading', {
+        y: 150,
+        opacity: 0,
+        duration: 10,
+        ease: "easeIn",
+        scrollTrigger: {
+          trigger: '.education .edu_heading',
+          start: 'top 80%',
+          end: 'top 100%',
+          scrub: 2,
+          toggleActions: "play none none none",
+        }
+      });
+    }, { scope: containerRef });
 
-  const injectHoverEffect = (e, status) => {
-    if (status === "enter") {
-      e.currentTarget.style.transform = "rotateX(6deg) rotateY(-4deg) translateY(-8px) translateZ(10px)";
-      e.currentTarget.style.background = "rgba(255, 255, 255, 0.04)";
-      e.currentTarget.style.borderColor = "rgb(25, 145, 163)";
-      e.currentTarget.style.boxShadow = "0 20px 40px rgb(25, 145, 163,0.15), 0 30px 60px rgba(0, 0, 0, 0.7)";
-    } else {
-      e.currentTarget.style.transform = "rotateX(0deg) rotateY(0deg) translateY(0px) translateZ(0px)";
-      e.currentTarget.style.background = "rgba(255, 255, 255, 0.02)";
-      e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.05)";
-      e.currentTarget.style.boxShadow = "0 10px 30px rgba(0, 0, 0, 0.5)";
-    }
-  };
+  // Production Target: Experience State Layer configured as default active view
+  const [activeTab, setActiveTab] = useState("experience");
 
-  const data = [
+  const journeyData = [
     {
+      id: 1,
+      type: "education",
       title: "2026",
-      content: (
-        <div 
-          style={cardBoxStyle}
-          onMouseEnter={(e) => injectHoverEffect(e, "enter")}
-          onMouseLeave={(e) => injectHoverEffect(e, "leave")}
-          className="text-center center "
-        >
-          <h4 className="text-xl font-bold text-[#1991a3]">
-            B.Tech Final Year - Computer Science
-          </h4>
-          <p className="text-zinc-400 mt-2">
-            Currently completing my engineering at Shri Sant Gadgebaba College
-            of Engineering & Technology, Bhusawal. <br />
-            Focusing on system design and preparing for the IT industry.
-          </p>
-          <p className="text-[18px]">
-            Current CGPA : 7.5 <br />
-            <span className=" course px-2 py-1 text-pink-600 rounded text-[18px] m-4">
-              Actively Seeking Opportunities | Industry Transition in Progress
-            </span>
-          </p>
-
-          <div className="mt-4 courseDiv">
-            <span className=" course px-2 py-1 bg-blue-500/10 text-blue-500 rounded text-xl m-4">
-              Engineering
-            </span>
-            <span className="course px-2 py-1 bg-purple-500/10 text-purple-500 rounded text-xl">
-              Final Year
-            </span>
-          </div>
-        </div>
-      ),
+      subtitle: "B.Tech Final Year - Computer Science",
+      institution: "Shri Sant Gadgebaba College of Engineering & Technology, Bhusawal.",
+      description: "Currently completing my engineering. Focusing on system design and preparing for the IT industry.",
+      metrics: "Current CGPA : 7.5",
+      statusText: "Actively Seeking Opportunities | Industry Transition in Progress",
+      tags: ["Engineering", "Final Year"]
     },
     {
+      id: 2,
+      type: "experience",
       title: "Present",
-      content: (
-        <div 
-          style={cardBoxStyle}
-          onMouseEnter={(e) => injectHoverEffect(e, "enter")}
-          onMouseLeave={(e) => injectHoverEffect(e, "leave")}
-          className="text-center"
-        >
-          <h4 className="text-xl font-bold text-[#1991a3]">
-            AI Engineering & Python Journey
-          </h4>
-          <p className="text-zinc-400 mt-2">
-            Started a structured path to learn AI. Exploring Machine Learning,<br />
-            Data Models, and Python-driven automation.
-            <br />
-          </p>
-          <p className="text-zinc-400 mt-2">
-          Initiated a dedicated transition into <span className="text-[#ffffff]">Artificial Intelligence</span>,<br /> leveraging 
-          Python to explore the intersection of data-driven intelligence and modern web applications.
-        </p>
-          <div className="mt-4 courseDiv">
-            <span className=" course px-2 py-1 bg-blue-500/10 text-blue-500 rounded text-xl m-4">
-              Self Paced
-            </span>
-            <span className="course px-2 py-1 bg-purple-500/10 text-purple-500 rounded text-xl">
-              Ongoing
-            </span>
-          </div>
-        </div>
-      ),
+      subtitle: "AI Engineering & Python Journey",
+      institution: "Self Paced",
+      description: "Started a structured path to learn AI. Exploring Machine Learning, Data Models, and Python-driven automation. Initiated a dedicated transition into Artificial Intelligence, leveraging Python to explore the intersection of data-driven intelligence and modern web applications.",
+      metrics: null,
+      statusText: null,
+      tags: ["Self Paced", "Ongoing"]
     },
     {
+      id: 3,
+      type: "experience",
       title: "2024-(2 months)",
-      content: (
-        <div 
-          style={cardBoxStyle}
-          onMouseEnter={(e) => injectHoverEffect(e, "enter")}
-          onMouseLeave={(e) => injectHoverEffect(e, "leave")}
-          className="text-center"
-        >
-          <h4 className="text-xl font-bold text-[#1991a3]">
-            Web Developer Intern
-          </h4>
-          <p className="text-zinc-400 mt-2">
-            Received an offer letter from codsoft ,<br /> Builds various mini to high level project that shape my skills in right way. <br /> I have used <span className="text-[#ffffffad]"><strong>Core javascript Concepts , React, and Node.js
-            with API Integretion.</strong></span><br /> 
-            <br />
-            I Especially worked on my frontend skills ,<br /> i have engaged with multiple of new terms and tasks those i didnt use before 
-          </p>
-          <div className="icons">
-            <div className="mt-4 courseDiv">
-              
-              <span className="course px-2 py-1 bg-purple-500/10 text-purple-500 rounded text-xl">
-                FrontEnd
-              </span>
-              <span className="course px-2 py-1 bg-purple-500/10 text-blue-500 rounded text-xl">
-                Framer-Motion
-              </span>
-            </div>
-          </div>
-        </div>
-      ),
+      subtitle: "Web Developer Intern",
+      institution: "CodSoft",
+      description: "Received an offer letter from codsoft. Builds various mini to high level project that shape my skills in right way. I have used Core javascript Concepts, React, and Node.js with API Integration. Especially worked on my frontend skills, engaged with multiple new terms and tasks those I didn't use before.",
+      metrics: null,
+      statusText: null,
+      tags: ["FrontEnd", "Framer-Motion"]
     },
     {
+      id: 4,
+      type: "experience",
       title: "Present",
-      content: (
-        <div 
-          style={cardBoxStyle}
-          onMouseEnter={(e) => injectHoverEffect(e, "enter")}
-          onMouseLeave={(e) => injectHoverEffect(e, "leave")}
-          className="text-center"
-        >
-          <h4 className="text-xl font-bold text-[#1991a3]">
-            Full-Stack Mastery (MERN)
-          </h4>
-          <p className="text-zinc-400 mt-2">
-            Developed deep expertise in <span className="text-[#ffffffad]"><strong>MongoDB, Express, React, and Node.js
-            with API Integretion.</strong></span><br /> Built a 
-            full-scale Social Media Platform and Employee Service Applications.
-            <br />
-            Developed a full fetched real world applications <br></br>
-            using the following technologies :
-          </p>
-          <div className="icons">
-            <div className="mt-4 courseDiv">
-              <span className=" course px-2 py-1 bg-blue-500/10 text-blue-500 rounded text-xl m-4">
-                Frontend
-              </span>
-              <span className="course px-2 py-1 bg-purple-500/10 text-purple-500 rounded text-xl">
-                Backend
-              </span>
-              <span className="course px-2 py-1 bg-purple-500/10 text-blue-500 rounded text-xl">
-                Database
-              </span>
-            </div>
-          </div>
-        </div>
-      ),
+      subtitle: "Full-Stack Mastery (MERN)",
+      institution: "Self Project Practice",
+      description: "Developed deep expertise in MongoDB, Express, React, and Node.js with API Integration. Built a full-scale Social Media Platform and Employee Service Applications. Developed full fetched real world applications using production-ready architectural design systems.",
+      metrics: null,
+      statusText: null,
+      tags: ["Frontend", "Backend", "Database"]
     },
     {
+      id: 5,
+      type: "education",
       title: "2022",
-      content: (
-        <div 
-          style={cardBoxStyle}
-          onMouseEnter={(e) => injectHoverEffect(e, "enter")}
-          onMouseLeave={(e) => injectHoverEffect(e, "leave")}
-          className="space-y-4"
-        >
-          <h4 className="text-xl md:text-2xl font-bold text-white">
-            Higher Secondary Education (HSC)
-          </h4>
-
-          <p className="text-neutral-400 leading-relaxed">
-            Completed my secondary education with a focus on{" "}
-            <span className="text-[#1991a3] font-medium">
-              Science and Mathematics
-            </span>
-            <div className="br"></div> This period was crucial in developing my
-            analytical thinking and problem-solving skills,
-             which eventually led me to pursue <br /><span className="text-[#1991a3]">Computer Science
-            Engineering.</span>
-          </p>
-          <p className="text-[18px] ">
-            <span className=" text-pink-600 rounded text-[15px]">
-              Institution: Jagjivandas English Medium School, Muktainagar
-            </span>
-          </p>
-          <p className="text-[18px] ">
-            <span className=" text-pink-600 rounded text-[15px]">
-              Stream: PCMB (Physics, Chemistry, Mathematics, Biology)
-            </span>
-          </p>
-          <br />
-          <div className="hidden  mt-4 p-4 rounded-2xl bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10">
-            <p className="text-sm italic text-neutral-600 dark:text-neutral-400">
-              "This stage laid the groundwork for my technical journey, sparking
-              a deep curiosity for how complex systems and logic-based
-              structures operate."
-            </p>
-          </div>
-        </div>
-      ),
-    },
+      subtitle: "Higher Secondary Education (HSC)",
+      institution: "Jagjivandas English Medium School, Muktainagar",
+      description: "Completed my secondary education with a focus on Science and Mathematics. This period was crucial in developing my analytical thinking and problem-solving skills, which eventually led me to pursue Computer Science Engineering.",
+      metrics: "Stream: PCMB (Physics, Chemistry, Mathematics, Biology)",
+      statusText: null,
+      tags: ["Science", "Mathematics"]
+    }
   ];
 
+  // Client side data stream selector
+  const filteredData = journeyData.filter((item) => {
+    if (activeTab === "all") return true;
+    return item.type === activeTab;
+  });
+
   return (
-    <div className="relative w-full flex pt-8 bg-black overflow-hidden">
-      <Timeline data={data} />
+    <div className="education relative w-full flex flex-col pt-8 bg-[transparent] overflow-hidden" ref={containerRef}>
+      
+      {/* FIXED CONTAINER: Is wrapper ki wajah se tabs component absolute horizon par center lock ho jayega */}
+      <div className="max-w-full mx-auto py-20 px-4 md:px-8 lg:px-10">
+        <h2 className="edu_heading text-xl text-center md:text-5xl mb-4 text-white font-bold">
+          Educational & <br /> Experience <span className="text-[#1991a3]">Journey</span>
+        </h2>
+      </div>
+
+      <div className="w-full flex justify-center items-center mb-4 px-4 z-30">
+        <div className="flex justify-center items-center gap-3 bg-neutral-950/90 border border-neutral-900 p-1.5 rounded-xl w-fit backdrop-blur-md relative">
+          {["experience", "education", "all"].map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`tab px-6 py-2 text-xs md:text-sm font-mono uppercase tracking-wider rounded-lg font-bold transition-all duration-300 ${
+                activeTab === tab
+                  ? "bg-[#1991a3] text-black shadow-md shadow-[#1991a3]/20"
+                  : "text-neutral-400 hover:text-white"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* State context successfully passed downwards */}
+      <Timeline data={filteredData} activeTab={activeTab} />
     </div>
   );
 };

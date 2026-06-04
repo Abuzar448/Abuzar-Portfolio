@@ -1,13 +1,14 @@
-import { useScroll, useTransform, motion, easeInOut } from "framer-motion";
+import { useScroll, useTransform, motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import BackToTop from "./BackToTop";
-import '../Style/Education.css'
+import '../Style/Education.css';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+
 gsap.registerPlugin(ScrollTrigger);
 
-export const Timeline = ({ data }) => {
+export const Timeline = ({ data, activeTab }) => {
   const ref = useRef(null);
   const containerRef = useRef(null);
   const [height, setHeight] = useState(0);
@@ -19,8 +20,8 @@ export const Timeline = ({ data }) => {
         setHeight(rect.height);
       }
     };
-
-    updateHeight();
+    // Yield execution context slightly for DOM painting
+    setTimeout(updateHeight, 100);
     window.addEventListener("resize", updateHeight);
     return () => window.removeEventListener("resize", updateHeight);
   }, [data]);
@@ -33,51 +34,117 @@ export const Timeline = ({ data }) => {
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
-  useGSAP(()=>{
-    gsap.from('.educationMain .edu_heading',{
-      y:100,
-      opacity:0,
-      duration:2,
-      ease:easeInOut,
-      scrollTrigger:{
-        trigger:'.educationMain .edu_heading',
-        start:'top 80%',
-        end:'top 100%',
-        scrub: 2,
-        toggleActions: "play none none none",
-      }
-    })
-  },{scope:containerRef});
+  // GSAP Entry Animation Layer
+ 
+
+  // GSAP Filter Reactivity Stagger Transition
+  useGSAP(() => {
+    gsap.fromTo(
+      ".timeline-row-item",
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.5, stagger: 0.08, ease: "power2.out" }
+    );
+  }, { dependencies: [activeTab, data], scope: containerRef });
+
+  // Preserved Original 3D Hover Inline Injector
+  const cardBoxStyle = {
+    width: "100%",
+    maxWidth: "650px",
+    margin: "0 auto",
+    padding: "2.5rem 2rem",
+    background: "rgba(255, 255, 255, 0.02)",
+    border: "1px solid rgba(255, 255, 255, 0.05)",
+    borderRadius: "16px",
+    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5)",
+    transformStyle: "preserve-3d",
+    perspective: "1000px",
+    transition: "transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s, border-color 0.3s, box-shadow 0.4s",
+  };
+
+  const injectHoverEffect = (e, status) => {
+    if (status === "enter") {
+      e.currentTarget.style.transform = "rotateX(6deg) rotateY(-4deg) translateY(-8px) translateZ(10px)";
+      e.currentTarget.style.background = "rgba(255, 255, 255, 0.04)";
+      e.currentTarget.style.borderColor = "rgb(25, 145, 163)";
+      e.currentTarget.style.boxShadow = "0 20px 40px rgb(25, 145, 163,0.15), 0 30px 60px rgba(0, 0, 0, 0.7)";
+    } else {
+      e.currentTarget.style.transform = "rotateX(0deg) rotateY(0deg) translateY(0px) translateZ(0px)";
+      e.currentTarget.style.background = "rgba(255, 255, 255, 0.02)";
+      e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.05)";
+      e.currentTarget.style.boxShadow = "0 10px 30px rgba(0, 0, 0, 0.5)";
+    }
+  };
 
   return (
     <div id="education" className="w-full bg-black font-sans educationMain" ref={containerRef}>
-      <BackToTop />
-      
-      <div className="max-w-full mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="edu_heading text-xl md:text-5xl mb-4 text-white font-bold">
-          Educational & <br /> Experience <span className="text-[#1991a3]">Journey</span>
-        </h2>
-      </div>
-
+      <BackToTop /> 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
-        
         <div className="grid grid-cols-1 gap-y-16 md:gap-y-32 w-full">
           {data.map((item, index) => (
-            <div key={index} className="grid grid-cols-[1fr_2fr] md:grid-cols-[35%_65%] w-full relative items-start gap-2 md:gap-8 w-full">
-             
+            <div 
+              key={item.id || index} 
+              className="timeline-row-item grid grid-cols-[1fr_2fr] md:grid-cols-[35%_65%] w-full relative items-start gap-2 md:gap-8 z-1"
+            >
+              
               <div className="flex items-center relative min-h-[60px] pt-2 w-full">              
-                <h3 className="md:block text-2xl lg:text-4xl font-bold text-zinc-300 pl-[90px] pr-2 break-words leading-tight z-10 bg-black timeline_title">
+                <h3 className="text-2xl lg:text-4xl font-bold text-zinc-300 pl-6 md:pl-[90px] pr-2 break-words leading-tight z-100 bg-black timeline_title">
                   {item.title}
                 </h3>
               </div>
 
+              {/* Dynamic Content Card Module */}
               <div className="w-full flex flex-col items-start pr-4 md:pr-10">
-               
-                <h3 className="md:hidden hidden block text-2xl mb-4 text-center font-bold text-[#1991a3]">
-                  {item.title}
-                </h3>
                 <div className="w-full flex justify-start">
-                  {item.content}
+                  <div 
+                    style={cardBoxStyle}
+                    onMouseEnter={(e) => injectHoverEffect(e, "enter")}
+                    onMouseLeave={(e) => injectHoverEffect(e, "leave")}
+                    className="text-center"
+                  >
+                    <h4 className="text-xl font-bold text-[#1991a3] tracking-tight">
+                      {item.subtitle}
+                    </h4>
+
+                    {item.institution && (
+                      <p className="text-neutral-300 font-medium text-sm mt-1">
+                        {item.institution}
+                      </p>
+                    )}
+
+                    <p className="text-zinc-400 mt-3 text-sm leading-relaxed">
+                      {item.description}
+                    </p>
+
+                    {item.metrics && (
+                      <p className="text-neutral-200 mt-2 text-base font-semibold">
+                        {item.metrics}
+                      </p>
+                    )}
+
+                    {item.statusText && (
+                      <p className="text-sm font-medium text-pink-600 mt-3 tracking-wide">
+                        {item.statusText}
+                      </p>
+                    )}
+
+                    {/* Tags Layer Module */}
+                    {item.tags && item.tags.length > 0 && (
+                      <div className="mt-5 flex flex-wrap justify-center gap-3">
+                        {item.tags.map((tag, tagIdx) => (
+                          <span 
+                            key={tagIdx} 
+                            className={`px-3 py-1 text-sm rounded font-medium ${
+                              tagIdx % 2 === 0 
+                                ? "bg-blue-500/10 text-blue-500" 
+                                : "bg-purple-500/10 text-purple-500"
+                            }`}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
 
@@ -85,6 +152,7 @@ export const Timeline = ({ data }) => {
           ))}
         </div>
 
+        {/* Floating Gradient Tracker Rail (Unchanged Style Rules) */}
         <div
           style={{ height: height + "px" }}
           className="absolute left-6 md:left-[50px] top-0 overflow-hidden w-[2px] bg-gradient-to-b from-transparent via-neutral-700 to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
