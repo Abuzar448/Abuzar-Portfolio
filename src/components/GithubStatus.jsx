@@ -1,29 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import '../Style/GithubStatus.css';
+import React, { useEffect, useRef, useState } from "react";
+import "../Style/GithubStatus.css";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const USERNAME = "Abuzar448";
+gsap.registerPlugin(ScrollTrigger);
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 },
-};
-
-// ── Skeleton loader ──────────────────────────────────────────────────────────
 const Skeleton = ({ height = "18px", style = {} }) => (
-  <div style={{
-    width: "100%", height,
-    borderRadius: "6px",
-    background: "linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%)",
-    backgroundSize: "200% 100%",
-    animation: "shimmer 1.5s infinite",
-    ...style,
-  }} />
+  <div
+    style={{
+      width: "100%",
+      height,
+      borderRadius: "6px",
+      background:
+        "linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%)",
+      backgroundSize: "200% 100%",
+      animation: "shimmer 1.5s infinite",
+      ...style,
+    }}
+  />
 );
 
-// ── Shared inline styles ──────────────────────────────────────────────────────
 const cardStyle = {
   background: "rgba(255,255,255,0.01)",
   border: "1px solid rgba(255,255,255,0.05)",
@@ -53,7 +51,6 @@ const statBoxStyle = {
   textAlign: "center",
 };
 
-// ── Core Stats Card (uses GitHub REST API directly) ──────────────────────────
 const CoreStatsCard = ({ username }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -88,7 +85,11 @@ const CoreStatsCard = ({ username }) => {
 
   const stats = [
     { label: "Total Stars", value: data?.stars ?? "—", icon: "★" },
-    { label: "Total Commits", value: data?.commits ? data.commits.toLocaleString() : "—", icon: "↑" },
+    {
+      label: "Total Commits",
+      value: data?.commits ? data.commits.toLocaleString() : "—",
+      icon: "↑",
+    },
     { label: "Public Repos", value: data?.repos ?? "—", icon: "⌬" },
     { label: "Followers", value: data?.followers ?? "—", icon: "◎" },
   ];
@@ -97,16 +98,46 @@ const CoreStatsCard = ({ username }) => {
     <div style={cardStyle}>
       <p style={cardTitleStyle}>GitHub Stats</p>
       {loading ? (
-        <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "8px" }}>
-          {[1, 2, 3, 4].map(i => <Skeleton key={i} height="52px" />)}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "12px",
+            marginTop: "8px",
+          }}
+        >
+          {[1, 2, 3, 4].map((i) => (
+            <Skeleton key={i} height="52px" />
+          ))}
         </div>
       ) : (
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginTop: "8px" }}>
-          {stats.map(s => (
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "12px",
+            marginTop: "8px",
+          }}
+        >
+          {stats.map((s) => (
             <div key={s.label} style={statBoxStyle}>
-              <span style={{ fontSize: "1.2rem", color: "#1991a3" }}>{s.icon}</span>
-              <span style={{ fontSize: "1.3rem", fontWeight: "700", color: "#fff" }}>{s.value}</span>
-              <span style={{ fontSize: "0.72rem", color: "#8b949e", marginTop: "2px" }}>{s.label}</span>
+              <span style={{ fontSize: "1.2rem", color: "#1991a3" }}>
+                {s.icon}
+              </span>
+              <span
+                style={{ fontSize: "1.3rem", fontWeight: "700", color: "#fff" }}
+              >
+                {s.value}
+              </span>
+              <span
+                style={{
+                  fontSize: "0.72rem",
+                  color: "#8b949e",
+                  marginTop: "2px",
+                }}
+              >
+                {s.label}
+              </span>
             </div>
           ))}
         </div>
@@ -115,7 +146,6 @@ const CoreStatsCard = ({ username }) => {
   );
 };
 
-// ── Top Languages Card (uses GitHub REST API directly) ────────────────────────
 const TopLangsCard = ({ username }) => {
   const [langs, setLangs] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -123,29 +153,37 @@ const TopLangsCard = ({ username }) => {
   useEffect(() => {
     const fetchLangs = async () => {
       try {
-        const reposRes = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
+        const reposRes = await fetch(
+          `https://api.github.com/users/${username}/repos?per_page=100`,
+        );
         const repos = await reposRes.json();
-        if (!Array.isArray(repos)) { setLoading(false); return; }
+        if (!Array.isArray(repos)) {
+          setLoading(false);
+          return;
+        }
 
         const langMap = {};
         await Promise.all(
-          repos.slice(0, 30).map(repo =>
+          repos.slice(0, 30).map((repo) =>
             fetch(repo.languages_url)
-              .then(r => r.json())
-              .then(data => {
+              .then((r) => r.json())
+              .then((data) => {
                 Object.entries(data).forEach(([lang, bytes]) => {
                   langMap[lang] = (langMap[lang] || 0) + bytes;
                 });
               })
-              .catch(() => {})
-          )
+              .catch(() => {}),
+          ),
         );
 
         const total = Object.values(langMap).reduce((a, b) => a + b, 0);
         const sorted = Object.entries(langMap)
           .sort((a, b) => b[1] - a[1])
           .slice(0, 6)
-          .map(([name, bytes]) => ({ name, pct: Math.round((bytes / total) * 100) }));
+          .map(([name, bytes]) => ({
+            name,
+            pct: Math.round((bytes / total) * 100),
+          }));
         setLangs(sorted);
       } catch (_) {}
       setLoading(false);
@@ -153,71 +191,219 @@ const TopLangsCard = ({ username }) => {
     fetchLangs();
   }, [username]);
 
-  const colors = ["#1991a3", "#34d399", "#f59e0b", "#a78bfa", "#f472b6", "#60a5fa"];
+  const colors = [
+    "#1991a3",
+    "#34d399",
+    "#f59e0b",
+    "#a78bfa",
+    "#f472b6",
+    "#60a5fa",
+  ];
 
   return (
     <div style={cardStyle}>
       <p style={cardTitleStyle}>Top Languages</p>
       {loading ? (
-        <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "10px" }}>
-          {[1, 2, 3, 4, 5].map(i => <Skeleton key={i} height="22px" />)}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px",
+            marginTop: "10px",
+          }}
+        >
+          {[1, 2, 3, 4, 5].map((i) => (
+            <Skeleton key={i} height="22px" />
+          ))}
         </div>
       ) : langs && langs.length > 0 ? (
-        <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", gap: "10px" }}>
+        <div
+          style={{
+            marginTop: "12px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px",
+          }}
+        >
           {/* Stacked bar */}
-          <div style={{ display: "flex", height: "10px", borderRadius: "6px", overflow: "hidden", gap: "2px", marginBottom: "4px" }}>
+          <div
+            style={{
+              display: "flex",
+              height: "10px",
+              borderRadius: "6px",
+              overflow: "hidden",
+              gap: "2px",
+              marginBottom: "4px",
+            }}
+          >
             {langs.map((l, i) => (
-              <div key={l.name} style={{ width: `${l.pct}%`, background: colors[i], transition: "width 0.8s ease" }} />
+              <div
+                key={l.name}
+                style={{
+                  width: `${l.pct}%`,
+                  background: colors[i],
+                  transition: "width 0.8s ease",
+                }}
+              />
             ))}
           </div>
           {/* Legend rows */}
           {langs.map((l, i) => (
-            <div key={l.name} style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: colors[i], display: "inline-block", flexShrink: 0 }} />
-                <span style={{ color: "#c9d1d9", fontSize: "0.85rem" }}>{l.name}</span>
+            <div
+              key={l.name}
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "8px" }}
+              >
+                <span
+                  style={{
+                    width: "10px",
+                    height: "10px",
+                    borderRadius: "50%",
+                    background: colors[i],
+                    display: "inline-block",
+                    flexShrink: 0,
+                  }}
+                />
+                <span style={{ color: "#c9d1d9", fontSize: "0.85rem" }}>
+                  {l.name}
+                </span>
               </div>
-              <span style={{ color: "#8b949e", fontSize: "0.8rem", fontFamily: "monospace" }}>{l.pct}%</span>
+              <span
+                style={{
+                  color: "#8b949e",
+                  fontSize: "0.8rem",
+                  fontFamily: "monospace",
+                }}
+              >
+                {l.pct}%
+              </span>
             </div>
           ))}
         </div>
       ) : (
-        <p style={{ color: "#8b949e", fontSize: "0.85rem", marginTop: "12px" }}>No language data found.</p>
+        <p style={{ color: "#8b949e", fontSize: "0.85rem", marginTop: "12px" }}>
+          No language data found.
+        </p>
       )}
     </div>
   );
 };
 
-// ── Main Component ────────────────────────────────────────────────────────────
 const GithubStatus = () => {
-  const handleImgError = (e) => { e.target.style.display = "none"; };
+  const containerRef = useRef(null);
+  const handleImgError = (e) => {
+    e.target.style.display = "none";
+  };
+
+  useGSAP(() => {
+    gsap.from(".github-section .github-heading", {
+        y: 140,
+        opacity: 0,
+        ease: "easeInOut",
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: ".github-section .github-heading",
+          start: "top 80%",
+          end: "top 100%",
+          scrub: 2,
+          toggleActions: "play none none none",
+        },
+      });
+      gsap.from(".github-section .github-subheading", {
+        y: 100,
+        opacity: 0,
+        ease: "easeInOut",
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: ".github-section .github-subheading",
+          start: "top 80%",
+          end: "top 100%",
+          scrub: 2,
+          toggleActions: "play none none none",
+        },
+      });
+      gsap.from(".github-section .github-profile-card", {
+        x: -150,
+        opacity: 0,
+        ease: "easeInOut",
+        stagger:4,
+        duration: 3,
+        scrollTrigger: {
+          trigger: ".github-section .github-profile-card",
+          start: "top 60%",
+          end: "top 100%",
+          scrub: 2,
+          toggleActions: "play none none none",
+        },
+      });
+      gsap.from(".github-section .github-metrics-container", {
+        x: 150,
+        opacity: 0,
+        ease: "easeInOut",
+        duration: 3,
+        stagger:4,
+        scrollTrigger: {
+          trigger: ".github-section .github-metrics-container",
+          start: "top 60%",
+          end: "top 100%",
+          scrub: 2,
+          toggleActions: "play none none none",
+        },
+      });
+      gsap.from(".github-section .github-graph-card", {
+        y: 150,
+        opacity: 0,
+        ease: "easeInOut",
+        duration: 3,
+        stagger:4,
+        scrollTrigger: {
+          trigger: ".github-section .github-graph-card",
+          start: "top 60%",
+          end: "top 100%",
+          scrub: 2,
+          toggleActions: "play none none none",
+        },
+      });
+      gsap.from(".github-stats-row", {
+        x: 150,
+        opacity: 0,
+        ease: "easeInOut",
+        duration: 3,
+        stagger:4,
+        scrollTrigger: {
+          markers:true,
+          trigger: ".github-stats-row",
+          start: "top 60%",
+          end: "top 100%",
+          scrub: 2,
+          toggleActions: "play none none none",
+        },
+      });
+  }, { scope: containerRef });
 
   return (
     <>
       <style>{`@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }`}</style>
 
-      <motion.section
-        id="github-status"
-        className="github-section"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
+      <section id="github-status" className="github-section" ref={containerRef}>
         <div className="github-wrapper">
-
           {/* ── Heading ── */}
-          <motion.h2 className="github-heading" {...fadeInUp}>
+          <h2 className="github-heading">
             Open Source <span>Contributions</span>
-          </motion.h2>
-          <motion.p className="github-subheading" {...fadeInUp}>
-            Monitored live metrics showcasing code consistency, active commits, and core repository architectures.
-          </motion.p>
+          </h2>
+          <p className="github-subheading">
+            Monitored live metrics showcasing code consistency, active commits,
+            and core repository architectures.
+          </p>
 
-          {/* ── Top Row: Profile + Metrics ── */}
           <div className="github-top-row">
-
-            <motion.div className="github-profile-card" {...fadeInUp}>
+            <div className="github-profile-card">
               <div className="avatar-frame">
                 <img
                   src={`https://avatars.githubusercontent.com/${USERNAME}`}
@@ -227,12 +413,16 @@ const GithubStatus = () => {
                 />
               </div>
               <h3>Abuzar Khan</h3>
-              <a href={`https://github.com/${USERNAME}`} target="_blank" rel="noopener noreferrer">
+              <a
+                href={`https://github.com/${USERNAME}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 @{USERNAME} <span className="arrow">↗</span>
               </a>
-            </motion.div>
+            </div>
 
-            <motion.div className="github-metrics-container" {...fadeInUp}>
+            <div className="github-metrics-container">
               <div className="metrics-table-header">
                 <h4>Activity Metrics Summary</h4>
                 <span className="live-indicator">
@@ -240,7 +430,6 @@ const GithubStatus = () => {
                 </span>
               </div>
               <div className="metrics-grid-table">
-
                 <div className="table-row">
                   <span className="metric-label">Current Streak</span>
                   <span className="metric-value">
@@ -269,16 +458,15 @@ const GithubStatus = () => {
 
                 <div className="table-row">
                   <span className="metric-label">Account Verification</span>
-                  <span className="metric-value status-verified">Active Developer</span>
+                  <span className="metric-value status-verified">
+                    Active Developer
+                  </span>
                 </div>
-
               </div>
-            </motion.div>
-
+            </div>
           </div>
 
-          {/* ── Contribution Heatmap ── */}
-          <motion.div className="github-graph-card" {...fadeInUp}>
+          <div className="github-graph-card">
             <div className="card-header">
               <h4>Contribution Heatmap (Past 365 Days)</h4>
             </div>
@@ -291,20 +479,18 @@ const GithubStatus = () => {
                 onError={handleImgError}
               />
             </div>
-          </motion.div>
-
-          {/* ── Bottom Row: Custom API-powered Stats Cards ── */}
-          <div className="github-stats-row">
-            <motion.div style={{ flex: 1 }} {...fadeInUp}>
-              <CoreStatsCard username={USERNAME} />
-            </motion.div>
-            <motion.div style={{ flex: 1 }} {...fadeInUp}>
-              <TopLangsCard username={USERNAME} />
-            </motion.div>
           </div>
 
+          <div className="github-stats-row">
+            <div style={{ flex: 1 }}>
+              <CoreStatsCard username={USERNAME} />
+            </div>
+            <div style={{ flex: 1 }}>
+              <TopLangsCard username={USERNAME} />
+            </div>
+          </div>
         </div>
-      </motion.section>
+      </section>
     </>
   );
 };
