@@ -31,7 +31,7 @@ const Footer = () => {
           <p className="footer-tagline">
             Building scalable full-stack solutions and robust architectures with precision.
           </p>
-          <a href="mailto:your-email@example.com" className="footer-mail-card">
+          <a href="mailto:aburaja2654@gmail.com" className="footer-mail-card">
             <div className="mail-icon-wrapper">
               <HiOutlineMail size={22} />
             </div>
