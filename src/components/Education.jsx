@@ -103,15 +103,15 @@ const EducationPage = () => {
       </div>
 
       <div className="w-full flex justify-center items-center mb-4 px-4 z-30">
-        <div className="flex justify-center items-center gap-3 bg-neutral-950/90 border border-neutral-900 p-1.5 rounded-xl w-fit backdrop-blur-md relative">
+        <div className="flex justify-center items-center gap-3 bg-[black] border border-neutral-900 p-1.5 rounded-[50px] w-fit backdrop-blur-xl relative">
           {["experience", "education", "all"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`tab px-6 py-2 text-xs md:text-sm font-mono uppercase tracking-wider rounded-lg font-bold transition-all duration-300 ${
+              className={`tab px-6 py-2 text-xs md:text-sm font-mono uppercase tracking-wider rounded-[50px] font-bold transition-all  ease-in duration-300 cursor-pointer ${
                 activeTab === tab
                   ? "bg-[#1991a3] text-black shadow-md shadow-[#1991a3]/20"
-                  : "text-neutral-400 hover:text-white"
+                  : "text-neutral-400 hover:text-[#1991a3] hover:scale-120"
               }`}
             >
               {tab}

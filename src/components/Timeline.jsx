@@ -77,7 +77,6 @@ export const Timeline = ({ data, activeTab }) => {
 
   return (
     <div id="education" className="w-full bg-black font-sans educationMain" ref={containerRef}>
-      <BackToTop /> 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
         <div className="grid grid-cols-1 gap-y-16 md:gap-y-32 w-full">
           {data.map((item, index) => (
@@ -152,14 +151,14 @@ export const Timeline = ({ data, activeTab }) => {
           ))}
         </div>
 
-        {/* Floating Gradient Tracker Rail (Unchanged Style Rules) */}
+        
         <div
           style={{ height: height + "px" }}
-          className="absolute left-6 md:left-[50px] top-0 overflow-hidden w-[2px] bg-gradient-to-b from-transparent via-neutral-700 to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+          className="absolute left-6 md:left-[50px] top-2 overflow-hidden w-[2px] bg-gradient-to-b from-transparent via-neutral-700 to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
         >
           <motion.div
             style={{ height: heightTransform, opacity: opacityTransform }}
-            className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-purple-500 via-[#1991a3] to-transparent rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+            className="absolute inset-x-0 top-[120px] w-[2px] bg-gradient-to-t from-purple-500 via-[#1991a3] to-transparent rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)]"
           />
         </div>
       </div>
