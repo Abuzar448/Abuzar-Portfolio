@@ -237,6 +237,11 @@
 
 /* --- Responsive Media Queries (Tablets & Desktop) --- */
 @media (max-width: 768px) {
+  .github-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .github-heading{
     font-size: 2.2rem !important;
   }

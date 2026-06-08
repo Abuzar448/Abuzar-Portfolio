@@ -394,7 +394,7 @@ const GithubStatus = () => {
         <div className="github-wrapper">
           {/* ── Heading ── */}
           <h2 className="github-heading">
-            Open Source <span>Contributions</span>
+            Open Source <span className="github-heading">Contributions</span>
           </h2>
           <p className="github-subheading">
             Monitored live metrics showcasing code consistency, active commits,
