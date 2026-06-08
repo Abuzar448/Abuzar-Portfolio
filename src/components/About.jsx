@@ -17,7 +17,7 @@ const About = () => {
         duration: 1,
         scrollTrigger: {
           trigger: ".about-header",
-          start: "top 90%",
+          start: "top 80%",
           end: "top 100%",
           scrub: 2,
           toggleActions: "play none none none",
@@ -30,7 +30,7 @@ const About = () => {
         duration: 1,
         scrollTrigger: {
           trigger: ".about-meta-box",
-          start: "top 80%",
+          start: "top 70%",
           end: "top 100%",
           scrub: 2,
           toggleActions: "play none none none",
@@ -42,10 +42,10 @@ const About = () => {
         opacity: 0,
         stagger: 4,
         ease: "easeIn",
-        duration: 2,
+        duration: 1,
         scrollTrigger: {
           trigger: ".about-desc-box .about-text",
-          start: "top 60%",
+          start: "top 90%",
           end: "top 100%",
           scrub: 2,
           toggleActions: "play none none none",
@@ -57,10 +57,10 @@ const About = () => {
         opacity: 0,
         stagger: 4,
         ease: "easeIn",
-        duration: 2,
+        duration: 1,
         scrollTrigger: {
           trigger: ".services-container .sub-heading",
-          start: "top 60%",
+          start: "top 90%",
           end: "top 100%",
           scrub: 2,
           toggleActions: "play none none none",
@@ -72,10 +72,10 @@ const About = () => {
         opacity: 0,
         stagger: 8,
         ease: "easeIn",
-        duration: 4,
+        duration: 1,
         scrollTrigger: {
           trigger: ".services-container .services-grid",
-          start: "top 60%",
+          start: "top 90%",
           end: "top 100%",
           scrub: 2,
           toggleActions: "play none none none",
@@ -87,10 +87,10 @@ const About = () => {
         opacity: 0,
         stagger: 8,
         ease: "easeIn",
-        duration: 4,
+        duration: 1,
         scrollTrigger: {
           trigger: ".skills-container .sub-heading",
-          start: "top 60%",
+          start: "top 90%",
           end: "top 100%",
           scrub: 2,
           toggleActions: "play none none none",
@@ -102,10 +102,10 @@ const About = () => {
         opacity: 0,
         stagger: 8,
         ease: "easeIn",
-        duration: 4,
+        duration: 1,
         scrollTrigger: {
           trigger: ".skills-container .skills-grid",
-          start: "top 60%",
+          start: "top 90%",
           end: "top 100%",
           scrub: 2,
           toggleActions: "play none none none",
@@ -140,7 +140,7 @@ const About = () => {
   };
 
   return (
-    <section className="about-section relative" ref={containerRef}>
+    <section id='about' className="about-section relative" ref={containerRef}>
       <div className="about-glow-orb" />
 
       <div className="about-wrapper">
