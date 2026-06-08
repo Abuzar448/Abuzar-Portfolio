@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div
-      className={`${isLoaded ? "loaded" : ""} OuterMostDiv relative w-full min-h-screen`}
+      className={`${isLoaded ? "loaded" : ""} OuterMostDiv relative w-full min-h-screen cursor-none`}
     >
       <Navbar></Navbar>
       <CustomCursor></CustomCursor>
