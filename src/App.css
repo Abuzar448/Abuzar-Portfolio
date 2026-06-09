@@ -69,11 +69,10 @@ body {
   position: absolute;
   overflow: hidden;
   top: 0;
-  left: 2;
-  right: 2;
+  left: 50%;                
+  transform: translateX(-50%);
   height: 70px;
   width: max-content;
-  transform: translateX(-50%);
   display: flex;
   justify-content: space-between;
   align-items: center;
