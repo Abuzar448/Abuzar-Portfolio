@@ -60,50 +60,56 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+.navbar {
+  /* Desktop Position Base */
+  position: fixed;
+  top: 1.4rem; /* Top se margin */
+  bottom: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  height: 70px;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2.5rem;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  z-index: 1000;
+  border: 1px solid var(--card-border);
+  border-radius: 50px;
+  overflow: hidden;
+  
+  font-family: "Climate Crisis", sans-serif;
+  font-weight: 400;
+}
+
 .navbardiv {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  z-index: 2;
 }
-.navbar {
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 50%;                
-  transform: translateX(-50%);
-  height: 70px;
-  width: max-content;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 5%;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(15px);
-  z-index: 1000;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-  border-bottom: 1px solid var(--card-border);
-  border-radius: 1.8rem;
-  margin: 1.4rem;
-  font-family: "Climate Crisis", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings: "YEAR" 1979;
-}
+
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: center;
   list-style: none;
 }
+
 .nav-links a {
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--text-color, #ffffff);
   font-weight: 500;
-  transition: all 0.3 ease;
   position: relative;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
+
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -111,15 +117,19 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--accent-color);
+  background: var(--accent-color, #3b82f6);
   transition: width 0.3s ease;
 }
+
 .nav-links a:hover {
-  color: var(--accent-color);
+  color: var(--accent-color, #3b82f6);
 }
+
 .nav-links a:hover::after {
   width: 100%;
 }
+
+/* Conic Border Animation Effects */
 .navbar::before {
   content: "";
   position: absolute;
@@ -127,24 +137,21 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-
   background: conic-gradient(transparent, transparent, transparent, #6b7280);
-
   animation: borderRotate 4s linear infinite;
+  z-index: 0;
 }
+
 .navbar::after {
   content: "";
   position: absolute;
   inset: 1px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(10, 10, 10, 0.8);
   backdrop-filter: blur(15px);
-  border-radius: calc(1rem - 1px);
-  z-index: 0;
-}
-.navbar > * {
-  position: relative;
+  border-radius: 50px;
   z-index: 1;
 }
+
 @keyframes borderRotate {
   100% {
     transform: rotate(360deg);
@@ -661,21 +668,13 @@ font-family: "Climate Crisis", sans-serif;
 /* Mobile Navigation Optimization */
 @media (max-width: 768px) {
   .navbar {
-    position: fixed;
     top: auto;
-    bottom: 30px;
-    transform: translateX(-50%);
-    border-top: 1px solid var(--card-border);
-    border-bottom: none;
-    border-radius: 50px;
-    align-items: center;
-    height: 80px;
+    bottom: 30px; /* Mobile me bottom par shift */
     width: 90%;
-    justify-content: center;
-    border: 1px solid #1e293b;
-    z-index: 100;
-    backdrop-filter: #00000000;
-    font-size: 0.6rem;
+    max-width: 400px;
+    height: 65px;
+    padding: 0 1rem;
+    font-size: 0.75rem;
   }
   .glitch {
     font-size: 4rem !important;
