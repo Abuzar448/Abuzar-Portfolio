@@ -73,6 +73,7 @@ body {
   right: 2;
   height: 70px;
   width: max-content;
+  transform: translateX(-50%);
   display: flex;
   justify-content: space-between;
   align-items: center;
