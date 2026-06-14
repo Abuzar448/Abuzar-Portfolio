@@ -6,6 +6,7 @@ import { FaDownload } from "react-icons/fa";
 import LoottieAnimation from "./LootieAnimation";
 import "../Style/hero.css";
 
+
 const fadeInUp = {
   initial: { opacity: 0, y: 50 },
   animate: { opacity: 1, y: 0 },
@@ -79,8 +80,8 @@ const Hero = () => {
                 My Work
               </motion.a>
               <motion.a
-                href="/Abuzar_k_Resume.pdf"
-                download="abuzar_khan_resume.pdf"
+                href="/abuzar-khan-resume-.pdf"
+                download="abuzar-khan-resume.pdf"
                 target="_blank"
                 className="cta-secondary"
                 variants={slideRight}
