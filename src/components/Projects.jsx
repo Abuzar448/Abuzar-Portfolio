@@ -164,7 +164,7 @@ const Projects = () => {
       ],
     },
     {
-      href: "https://github.com/Abuzar448/codevector_Assignment",
+      href: "https://codevector-assignment-f1g4-59fx2k175.vercel.app/",
       img: "/projects/Backend_App.jpg",
       title: "ScaleStream - High-Performance Data Engine",
       desc: "A scalable MERN application optimizing database lookups across 200,000+ indexed records using advanced cursor-based pagination and compound indexing.",

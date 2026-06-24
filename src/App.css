@@ -676,10 +676,10 @@ font-family: "Climate Crisis", sans-serif;
     width: 100% !important;
   }
   .hero {
-    min-height: 110vh !important;
+    min-height: 100vh !important;
   }
   .hero-container{
-    scale:0.9;
+    scale:1;
   }
   .logo {
     display: none;
