@@ -110,7 +110,7 @@ const EducationPage = () => {
               onClick={() => setActiveTab(tab)}
               className={`tab px-6 py-2 text-xs md:text-sm font-mono uppercase tracking-wider rounded-[50px] font-bold transition-all  ease-in duration-300 cursor-pointer ${
                 activeTab === tab
-                  ? "bg-gradient text-gray-500 shadow-md shadow-[#1991a3]/60"
+                  ? "bg-gradient text-gray-500 border-b border-gray-800"
                   : "text-gray-500 hover:text-[#1991a3] hover:scale-120"
               }`}
             >
