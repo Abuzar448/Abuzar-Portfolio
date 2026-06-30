@@ -111,6 +111,21 @@ const About = () => {
           toggleActions: "play none none none",
         },
       });
+      // Target individual words inside the heading
+      gsap.from(".animate-word", {
+        y: 60,
+        opacity: 0,
+        stagger: 0.15, // Ek word ke baad dusra word aane ka delay
+        duration: 0.8,
+        ease: "power2.out", // 'easeIn' se zyada smooth 'power2.out' lagega scrolling animations me
+        scrollTrigger: {
+          trigger: ".profile-name", // Trigger parent par rakha hai taaki smooth execute ho
+          start: "top 80%",
+          end: "top 60%",
+          scrub: 2,
+          toggleActions: "play none none none",
+        },
+      });
     },
     { scope: containerRef },
   );
@@ -140,7 +155,7 @@ const About = () => {
   };
 
   return (
-    <section id='about' className="about-section relative" ref={containerRef}>
+    <section id="about" className="about-section relative" ref={containerRef}>
       <div className="about-glow-orb" />
 
       <div className="about-wrapper">
@@ -152,7 +167,17 @@ const About = () => {
         <div className="about-grid">
           <div className="about-meta-box">
             <h3 className="profile-name">
-              Full-Stack Web Developer & Designer
+              {"Full-Stack Web Developer & Designer"
+                .split(" ")
+                .map((word, index) => (
+                  <span
+                    key={index}
+                    className="animate-word"
+                    style={{ display: "inline-block", marginRight: "8px" }}
+                  >
+                    {word}
+                  </span>
+                ))}
             </h3>
             <p className="place">Muktainagar, dist.Jalgaon, Maharashtra</p>
           </div>
