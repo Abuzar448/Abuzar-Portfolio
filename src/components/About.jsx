@@ -10,10 +10,11 @@ const About = () => {
 
   useGSAP(
     () => {
+      // About Header Animation
       gsap.from(".about-header", {
         y: 100,
         opacity: 0,
-        ease: "easeIn",
+        ease: "power2.inOut",
         duration: 1,
         scrollTrigger: {
           trigger: ".about-header",
@@ -23,10 +24,12 @@ const About = () => {
           toggleActions: "play none none none",
         },
       });
+
+      // Meta Box Animation
       gsap.from(".about-meta-box", {
         y: 80,
         opacity: 0,
-        ease: "easeIn",
+        ease: "power2.inOut",
         duration: 1,
         scrollTrigger: {
           trigger: ".about-meta-box",
@@ -37,17 +40,15 @@ const About = () => {
         },
       });
 
-      gsap.from(".about-desc-box .about-text", {
-        y: 80,
+      gsap.from(".reveal-line", {
+        y: "100%",
         opacity: 0,
-        stagger: 4,
-        ease: "easeIn",
-        duration: 1,
+        duration: 0.8,
+        ease: "power3.out",
+        stagger: 0.15,
         scrollTrigger: {
-          trigger: ".about-desc-box .about-text",
-          start: "top 90%",
-          end: "top 100%",
-          scrub: 2,
+          trigger: ".about-desc-box",
+          start: "top 80%",
           toggleActions: "play none none none",
         },
       });
@@ -56,7 +57,7 @@ const About = () => {
         y: 80,
         opacity: 0,
         stagger: 4,
-        ease: "easeIn",
+        ease: "power2.inOut",
         duration: 1,
         scrollTrigger: {
           trigger: ".services-container .sub-heading",
@@ -67,11 +68,12 @@ const About = () => {
         },
       });
 
+      // Services Grid
       gsap.from(".services-container .services-grid", {
         y: 100,
         opacity: 0,
         stagger: 8,
-        ease: "easeIn",
+        ease: "power2.inOut",
         duration: 1,
         scrollTrigger: {
           trigger: ".services-container .services-grid",
@@ -82,11 +84,12 @@ const About = () => {
         },
       });
 
+      // Skills Sub-heading
       gsap.from(".skills-container .sub-heading", {
         y: 100,
         opacity: 0,
         stagger: 8,
-        ease: "easeIn",
+        ease: "power2.inOut",
         duration: 1,
         scrollTrigger: {
           trigger: ".skills-container .sub-heading",
@@ -97,11 +100,12 @@ const About = () => {
         },
       });
 
+      // Skills Grid
       gsap.from(".skills-container .skills-grid", {
         y: 100,
         opacity: 0,
         stagger: 8,
-        ease: "easeIn",
+        ease: "power2.inOut",
         duration: 1,
         scrollTrigger: {
           trigger: ".skills-container .skills-grid",
@@ -111,15 +115,16 @@ const About = () => {
           toggleActions: "play none none none",
         },
       });
-      // Target individual words inside the heading
+
+      // Profile Name Individual Word Animation
       gsap.from(".animate-word", {
         y: 60,
         opacity: 0,
-        stagger: 0.15, // Ek word ke baad dusra word aane ka delay
+        stagger: 0.15,
         duration: 0.8,
-        ease: "power2.out", // 'easeIn' se zyada smooth 'power2.out' lagega scrolling animations me
+        ease: "power2.out",
         scrollTrigger: {
-          trigger: ".profile-name", // Trigger parent par rakha hai taaki smooth execute ho
+          trigger: ".profile-name",
           start: "top 80%",
           end: "top 60%",
           scrub: 2,
@@ -179,26 +184,64 @@ const About = () => {
                   </span>
                 ))}
             </h3>
-            <p className="place">Muktainagar, dist.Jalgaon, Maharashtra</p>
+            <p className="place text-2xl">
+              Muktainagar, dist.Jalgaon, Maharashtra
+            </p>
           </div>
 
           <div className="about-desc-box">
+            {/* Paragraph 1 */}
             <p className="about-text">
-              Currently pursuing my{" "}
-              <span className="highlight-text">B.Tech</span> in{" "}
-              <span className="highlight-text">
-                Computer Science and Engineering
+              <span className="line-wrapper">
+                <span className="reveal-line">
+                  Pursuing a{" "}
+                  <span className="highlight-text">
+                    B.Tech in Computer Science
+                  </span>
+                  ,
+                </span>
               </span>
-              . I specialize in the MERN Stack, moving away from minor tutorials
-              to build production-ready, real-world applications with advanced
-              architecture.
+              <span className="line-wrapper">
+                <span className="reveal-line">
+                  I build production-grade web systems using the
+                </span>
+              </span>
+              <span className="line-wrapper">
+                <span className="reveal-line">
+                  <span className="highlight-text">MERN Stack</span>, focusing
+                  strictly on scalable applications
+                </span>
+              </span>
+              <span className="line-wrapper">
+                <span className="reveal-line">
+                  and advanced engineering architecture.
+                </span>
+              </span>
             </p>
+
+            {/* Paragraph 2 */}
             <p className="about-text">
-              Currently, I am actively expanding my skillset into{" "}
-              <span className="highlight-text">AI Engineering</span> by focusing
-              on the pipeline execution flow. My ultimate goal is to bridge the
-              gap between pixel-perfect UI/UX design and highly scalable system
-              performance.
+              <span className="line-wrapper">
+                <span className="reveal-line">
+                  Currently expanding into{" "}
+                  <span className="highlight-text">AI Engineering</span>
+                </span>
+              </span>
+              <span className="line-wrapper">
+                <span className="reveal-line">
+                  to master automated pipeline flows, aiming to
+                </span>
+              </span>
+              <span className="line-wrapper">
+                <span className="reveal-line">
+                  bridge pixel-perfect UI/UX design with
+                </span>
+              </span>
+              <span className="line-wrapper">
+                <span className="reveal-line">
+                  high-performance system backends.
+                </span>
+              </span>
             </p>
           </div>
         </div>
